@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lista de Deputados Federais</title>
+  </head>
+  <body>
+    <h1>Lista de Deputados Federais</h1>
+    <input id="ipt_nome_deputado" type="text" placeholder="Insira o nome do Deputado Federal">
+    <button onclick="ver_deputado()">Veja o Status!</button>
+    <table>
+      <tbody id="deputados">
+      </tbody>
+    </table>
+    <script>
+        function ver_deputado(){
+        var var_nome_deputado = Number(ipt_nome_deputado.value);
+      fetch('https://dadosabertos.camara.leg.br/api/v2/deputados')
+        .then(response => response.json())
+        .then(data => {
+          const deputados = data.dados;
+          const deputadosTable = document.querySelector('#deputados');
+
+          deputados.forEach(deputado => {
+            const row = document.createElement('tr');
+
+            const nome = document.createElement('td');
+            nome.textContent = deputado.nome;
+            row.appendChild(nome);
+
+            const partido = document.createElement('td');
+            partido.textContent = deputado.siglaPartido;
+            row.appendChild(partido);
+
+            const uf = document.createElement('td');
+            uf.textContent = deputado.siglaUf;
+            row.appendChild(uf);
+
+            deputadosTable.appendChild(row);
+          });
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+    </script>
+  </body>
+</html>

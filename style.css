@@ -1,0 +1,114 @@
+.darkSection{
+    background-color: var(--color1);
+}
+
+.reverse main{
+    flex-direction: row-reverse; /* inverte a ordem*/
+}
+
+.darkSection main h1{
+    color: var(--color2);
+}
+
+.lightSection main h1{
+    color: var(--color1);
+}
+
+
+.sections{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 85vh; /* isso faz com que as seções aumentem caso o texto exceda a altura e não fique transbordando pra fora da página*/
+}
+
+.sections main{
+    display: flex;
+    width: 90%;
+    height: 80%;
+    color: #fff;
+}
+
+.sections main .firstContainer,.secondContainer{
+    font-size: 1.0em;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3em;
+}
+
+.sections main .secondContainer img{
+    width: 100%;
+    border-radius: 60px 0px 60px 0px;
+}
+
+#hopTechLogo{
+    border-radius: 0;
+}
+
+.section main .firstContainer h1, p{
+    text-align: justify;
+}
+
+.sections main .firstContainer .buttonBox{
+    padding: 1em;
+    display: flex;
+}
+
+.sections main .firstContainer .buttonBox button{
+    font-size: 1em;
+    border-radius: 500px;
+    padding: 1em 7em;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: var(--color1);
+    color: #000000;
+}
+
+
+.sections main .firstContainer .titleBox{
+    padding: .5em 0;
+}
+
+.sections main .firstContainer .inputBox .inputs{
+    display: flex;
+    padding: .5em 0;
+    flex-direction: column;
+}
+
+.sections main .firstContainer .inputBox .inputs input{
+    width: 80%;
+    padding: 1em;
+    border-radius: 500px;
+    border: none;
+    outline: none;
+}
+
+#contactButton{
+    background: var(--color2);
+}
+
+.sections main .secondContainer .topics{
+    display: flex;
+    flex-direction: column;
+}
+
+.sections main .secondContainer .topics * {
+    padding: 10px;
+}
+
+.sections main .secondContainer .topics .socialMedia{
+    display: flex;
+}
+
+.sections main .secondContainer .topics .socialMedia a{
+    color: #0e0d0d;
+}
+
+button:hover{
+    transition: .5s;
+    filter: contrast(150%);
+}
