@@ -18,4 +18,4 @@
   <img src="https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white">
 </div>
 <br>
-❗Disclaimer: A Politicando® não possui qualquer orientação ou predileção política-partidária. O intuito do projeto é exclusivamente acadêmico.❗
+❗Disclaimer: A Politicando® não possui qualquer orientação ou predileção político-partidária. O intuito do projeto é exclusivamente acadêmico.❗
