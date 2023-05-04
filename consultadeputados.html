@@ -14,7 +14,7 @@
     <script>
         function ver_deputado(){
         var var_nome_deputado = Number(ipt_nome_deputado.value);
-      fetch('https://dadosabertos.camara.leg.br/api/v2/deputados')
+      fetch('https://dadosabertos.camara.leg.br/api/v2/deputados/')
         .then(response => response.json())
         .then(data => {
           const deputados = data.dados;

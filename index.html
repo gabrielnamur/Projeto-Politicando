@@ -13,20 +13,26 @@
 <body>
     <header>
         <nav>
+            <div class = "imgBox">
+                <img src = "./logo_img.png" alt="">
+            </div>
             <div class="menuBox">
                 <ul class="menuList">
-                    <li class="menuTopics"><a href="#inicio">Início</a></li>
-                    <li class="menuTopics"><a href="#valores">Nossos Valores</a></li>
-                    <li class="menuTopics"><a href="#informacoes">Informações Câmara dos Deputados</a></li>
-                    <li class="menuTopics"><a href="#faqpolitico">FAQ Político</a></li>
-                    <li class="menuTopics"><a href="#simulador">Simulador dos Políticos</a></li>
-                    <li class="menuTopics"><a href="#guiadebusca">Buscar Deputado</a></li>
-                    <li class="menuTopics"><a href="#contato">Contatos e Redes Sociais</a></li>
-                    <li class="menuButton"><button>Cadastre-se e Acompanhe seu Voto!</button></li>
+                    <li class="menuTopics"><a href="index.html">Início</a></li>
+                    <li class="menuTopics"><a href="#Nossovalores">Sobre</a></li>
+                    <li class="menuTopics"><a href="#informacoes">Informações</a></li>
+                    <li class="menuTopics"><a href="#faqpolitico">FAQ</a></li>
+                    <li class="menuTopics"><a href="#simulador">Simulador</a></li>
+                    <li class="menuTopics"><a href="#guiadebusca">Buscar</a></li>
+                    <li class="menuTopics"><a href="#contato">Contatos</a></li>
+                    <li class="menuButton"><a href="teladecadastro.html"><button>Cadastre-se!</button></a></li>
                 </ul>
             </div>
         </nav>
     </header>
+    <div class="banner">
+        <img id="bannerImg" src="https://live.staticflickr.com/3752/10593810575_bf273d4188_b.jpg" alt="">
+    </div>
     <div id="inicio" class="sections lightSection">
         <main>
             <div class="firstContainer">
@@ -46,17 +52,15 @@
     </div>
     <div id="valores" class="sections reverse darkSection">
         <main>
-            <div class="firstContainer">
-                <h1>Nossos Valores</h1>
+            <div id="Nossovalores" class="firstContainer">
+                <h1 >Nossos Valores</h1>
                 <p> Manifesto Politicando®: A Politicando® é uma plataforma online que tem como objetivo ajudar os cidadãos a se manterem informados sobre as atividades de seus deputados, fazer consultas e simular a produtividade de seus candidatos, além de ter acesso a informações gerais sobre política e cidadania.
                     A plataforma fornece informações completas e atualizadas sobre os deputados e senadores em exercício, incluindo seus dados pessoais, histórico de votação, projetos em que estão envolvidos, e muito mais. Isso permite que os cidadãos acompanhem de perto as atividades de seus representantes eleitos e tomem decisões mais informadas sobre como votar nas próximas eleições.
                     Além disso, o site conta com ferramentas que permitem simular a produtividade de um candidato com base em seu histórico de votação, projetos em que se envolveu, discursos e outras atividades parlamentares. Essas ferramentas ajudam os cidadãos a avaliar a eficácia de seus representantes eleitos e a tomar decisões mais conscientes nas próximas eleições.
                     O site também disponibiliza informações gerais sobre política e cidadania, incluindo artigos, vídeos e tutoriais sobre como participar mais ativamente da vida política do país. Esses recursos são especialmente úteis para aqueles que desejam se envolver mais na política, mas não sabem por onde começar.
                     Em suma, o site de conscientização política é uma plataforma online completa e acessível que permite aos cidadãos se manterem informados sobre as atividades de seus deputados, fazer consultas e simular a produtividade de seus candidatos, e ter acesso a informações gerais sobre política e cidadania. Com essa ferramenta, os cidadãos podem tomar decisões mais conscientes e participar mais ativamente da vida política do país.</p>
             </div>
-            <div class="secondContainer">
-                <img src="imgs/dashboard.gif" alt="">
-            </div>
+            
         </main>
         <img src="imgs/waveLight.svg" alt="">
     </div>
@@ -94,7 +98,7 @@
     <div id="informacoes" class="sections lightSection">
         <main>
             <div class="firstContainer">
-                <h1>Simulador dos Políticos</h1>
+                <h1 id="simulador">Simulador dos Políticos</h1>
                 <p>Quer saber se o deputado que você elegeu está cumprindo suas promessas de 
                    campanha? Nosso simulador de atividade legislativa permite que você compare 
                    a produtividade do seu candidato com a de outros parlamentares, para que possa 
@@ -114,7 +118,7 @@
     <div id="informacoes" class="sections darkSection">
         <main>
             <div class="firstContainer">
-                <h1>Buscar Deputados</h1>
+                <h1 id="guiadebusca">Buscar Deputados</h1>
                 <p>Está cansado de procurar informações sobre os deputados federais da atual 
                    legislatura em diferentes fontes? Nosso guia de busca de deputados federais 
                    coloca todas as informações importantes em um só lugar. Com ele, você pode 
@@ -134,8 +138,8 @@
     </div>
     <footer id="contato" class="sections lightSection">
         <main>
-            <div class="firstContainer">
-                <div class="titleBox">         
+        <div class="firstContainer">
+        <div class="titleBox">         
             <div class="secondContainer">
                 <div class="topics">
                     <h1>Endereço</h1>

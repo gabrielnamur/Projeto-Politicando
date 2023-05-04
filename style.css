@@ -1,3 +1,7 @@
+body{
+    color: #252525;
+}
+
 .darkSection{
     background-color: var(--color1);
 }
@@ -15,23 +19,23 @@
 }
 
 
+
 .sections{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    min-height: 85vh; /* isso faz com que as seções aumentem caso o texto exceda a altura e não fique transbordando pra fora da página*/
+    min-height: 50vh; /* isso faz com que as seções aumentem caso o texto exceda a altura e não fique transbordando pra fora da página*/
 }
 
 .sections main{
     display: flex;
     width: 90%;
     height: 80%;
-    color: #fff;
 }
 
 .sections main .firstContainer,.secondContainer{
-    font-size: 1.0em;
+    font-size: 14px;
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -91,13 +95,14 @@
     background: var(--color2);
 }
 
+
 .sections main .secondContainer .topics{
     display: flex;
     flex-direction: column;
 }
 
 .sections main .secondContainer .topics * {
-    padding: 10px;
+    padding: 5px;
 }
 
 .sections main .secondContainer .topics .socialMedia{
@@ -105,10 +110,18 @@
 }
 
 .sections main .secondContainer .topics .socialMedia a{
-    color: #0e0d0d;
+    color: #000000;
 }
 
 button:hover{
     transition: .5s;
     filter: contrast(150%);
+}
+#bannerImg {
+    width: 100%;   
+    height: 100%;
+}   
+
+a{
+    text-decoration: none;
 }

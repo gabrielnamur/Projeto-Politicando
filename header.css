@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 :root{
-    --color1: #38940d93;
-    --color2: #acaf08e1;
+    --color1: grey;
+    --color2: white;
 }
 
 ::-webkit-scrollbar-track {
@@ -49,7 +49,7 @@ header{
     align-items: center;
     justify-content: center;
     height: 15vh;
-    background: #22222236;
+    background: #252525;
     backdrop-filter: blur(15px);
 }
 
@@ -119,12 +119,12 @@ header nav .menuBox{
 .menuList .menuButton{
     display: flex;
     justify-content: center;
-    width: 40%;
+    width: 60%;
 }
 
 .menuList .menuButton button{
     height: 100%;
-    width: 80%;
+    width: 120%;
     border-radius: 500px;
     cursor: pointer;
     border: none;
