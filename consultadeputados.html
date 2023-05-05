@@ -13,29 +13,31 @@
     </table>
     <script>
         function ver_deputado(){
-        var var_nome_deputado = Number(ipt_nome_deputado.value);
+          var tBody = document.getElementById("deputados");
+        var var_nome_deputado = ipt_nome_deputado.value.toLowerCase();
       fetch('https://dadosabertos.camara.leg.br/api/v2/deputados/')
         .then(response => response.json())
         .then(data => {
           const deputados = data.dados;
           const deputadosTable = document.querySelector('#deputados');
 
-          deputados.forEach(deputado => {
-            const row = document.createElement('tr');
+          var deputadosFiltrados = deputados.filter(deputado => deputado.nome.toLowerCase().includes(var_nome_deputado))
 
-            const nome = document.createElement('td');
-            nome.textContent = deputado.nome;
-            row.appendChild(nome);
+          console.log(deputadosFiltrados)
 
-            const partido = document.createElement('td');
-            partido.textContent = deputado.siglaPartido;
-            row.appendChild(partido);
+          deputadosFiltrados.forEach(deputado => {
 
-            const uf = document.createElement('td');
-            uf.textContent = deputado.siglaUf;
-            row.appendChild(uf);
 
-            deputadosTable.appendChild(row);
+              var texto = `<tr>
+                <td>${deputado.nome} - </td>
+                  <td>${deputado.siglaPartido} - </td>
+                  <img src="${deputado.urlFoto}" class="foto-deputado" width="120px">
+                  <td>${deputado.siglaUf} - </td>
+                  <td>${deputado.email} </td>
+                </tr>`
+
+console.log(deputado);
+                tBody.innerHTML += texto;
           });
         })
         .catch(error => {
