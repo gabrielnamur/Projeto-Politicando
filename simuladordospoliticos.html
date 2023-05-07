@@ -10,13 +10,12 @@
 <body>
 	<div class="container">
 		<h1>Simulador dos Políticos | Politicando®</h1>
+		<input id="ipt_nome_deputado" onkeydown="ver_deputado()" list="list_deputados">
+
+		<datalist id="list_deputados">
+		</datalist>
 		<div class="deputado">
 			<div class="foto">
-				<input id="ipt_deputado" onkeydown="ver_deputado()" list="list_deputados">
-				<datalist id="list_deputados">
-					<option></option>
-				</datalist>
-
 				<img src="foto-deputado1.jpg" alt="Foto do Deputado 1">
 			</div>
 			<div class="info">
@@ -56,21 +55,22 @@
 	  const deputados = data.dados;
 
 	  var deputadosFiltrados = deputados.filter(deputado => deputado.nome.toLowerCase().includes(var_nome_deputado))
-
 	  console.log(deputadosFiltrados)
-	  
-	  deputados.nome.forEach(deputado => {
 
-		var option = document.createElement("option");
+	  	var datalist = document.getElementById("list_deputados");
+		datalist.innerHTML = "";
 
-		var datalist = document.getElementById("list_deputados");
+		for(i=0; i < deputadosFiltrados.length; i++){
 
-		option.innerHTML = deputados.nome;
+			var option = document.createElement('option');
+			option.id = 'opcoes';
+			option.value = 
+			deputadosFiltrados[i].nome;
 
-		datalist.appendChild("option")
+			document.getElementById('list_deputados').appendChild(option)
+		}
 
-	  }
-	)
+		
 
 	  deputadosFiltrados.forEach(deputado => {
 
