@@ -1,69 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Simulador dos Políticos | Politicando®</title>
-	<style>
-		body {
-			background-color: #fff;
-			font-family: Arial, sans-serif;
-		}
-		h1 {
-			text-align: center;
-			font-size: 36px;
-			margin-top: 50px;
-		}
-		.container {
-			max-width: 800px;
-			margin: 0 auto;
-			padding: 50px;
-			background-color: #fff;
-			box-shadow: 0px 0px 10px #888888;
-		}
-		.deputado {
-			margin-bottom: 30px;
-			padding: 20px;
-			background-color: #fff;
-			box-shadow: 0px 0px 5px #888888;
-			display: flex;
-			align-items: center;
-		}
-		.foto {
-			flex: 1;
-			margin-right: 30px;
-		}
-		.info {
-			flex: 2;
-		}
-		.nome {
-			font-size: 24px;
-			font-weight: bold;
-			margin-bottom: 10px;
-		}
-		.partido {
-			font-size: 18px;
-			margin-bottom: 20px;
-		}
-		.comparacao {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			margin-top: 50px;
-		}
-		.campo {
-			flex: 1;
-			margin-right: 30px;
-		}
-		.valor {
-			flex: 1;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador | Politicando®</title>
+	<link rel="stylesheet" href="simuladordospoliticos.css">
 </head>
 <body>
 	<div class="container">
 		<h1>Simulador dos Políticos | Politicando®</h1>
 		<div class="deputado">
 			<div class="foto">
+				<input id="ipt_deputado" onkeydown="ver_deputado()" list="list_deputados">
+				<datalist id="list_deputados">
+					<option></option>
+				</datalist>
+
 				<img src="foto-deputado1.jpg" alt="Foto do Deputado 1">
 			</div>
 			<div class="info">
@@ -92,3 +45,49 @@
 		</div>
 	</div>
 </body>
+
+<script>
+	function ver_deputado(){
+	  var tBody = document.getElementById("deputados");
+	var var_nome_deputado = ipt_nome_deputado.value.toLowerCase();
+	fetch('https://dadosabertos.camara.leg.br/api/v2/deputados/')
+	.then(response => response.json())
+	.then(data => {
+	  const deputados = data.dados;
+
+	  var deputadosFiltrados = deputados.filter(deputado => deputado.nome.toLowerCase().includes(var_nome_deputado))
+
+	  console.log(deputadosFiltrados)
+	  
+	  deputados.nome.forEach(deputado => {
+
+		var option = document.createElement("option");
+
+		var datalist = document.getElementById("list_deputados");
+
+		option.innerHTML = deputados.nome;
+
+		datalist.appendChild("option")
+
+	  }
+	)
+
+	  deputadosFiltrados.forEach(deputado => {
+
+		  var texto = `<tr>
+			<td>${deputado.nome} - </td>
+			  <td>${deputado.siglaPartido} - </td>
+			  <img src="${deputado.urlFoto}" class="foto-deputado" width="120px">
+			  <td>${deputado.siglaUf} - </td>
+			  <td>${deputado.email} </td>
+			</tr>`
+
+console.log(deputado);
+			tBody.innerHTML += texto;
+	  });
+	})
+	.catch(error => {
+	  console.error(error);
+	});
+}
+</script>

@@ -15,11 +15,10 @@
         function ver_deputado(){
           var tBody = document.getElementById("deputados");
         var var_nome_deputado = ipt_nome_deputado.value.toLowerCase();
-      fetch('https://dadosabertos.camara.leg.br/api/v2/deputados/')
+        fetch('https://dadosabertos.camara.leg.br/api/v2/deputados/')
         .then(response => response.json())
         .then(data => {
           const deputados = data.dados;
-          const deputadosTable = document.querySelector('#deputados');
 
           var deputadosFiltrados = deputados.filter(deputado => deputado.nome.toLowerCase().includes(var_nome_deputado))
 
