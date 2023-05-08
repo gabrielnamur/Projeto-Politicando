@@ -1,5 +1,9 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap'); */
+
 body{
     color: #252525;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .darkSection{
@@ -124,4 +128,42 @@ button:hover{
 
 a{
     text-decoration: none;
+}
+
+.graficosCamara {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+
+}
+
+.graficosCamara img {
+    width: 500px;
+    margin: 5px;
+    margin-top: 25px;
+}
+
+.secondContainer{
+    width: 100%;
+}
+
+p{
+    text-align: left;
+    font-size: 18px;
+}
+
+.btn_area_dark{
+    background-color: #ffffff;
+    border: solid;
+}
+
+.rodape{
+    display: flex;
+    justify-content: space-between;
+}
+
+.listadeputados{
+    padding: 5%;
+    padding-top: 2%;
+
 }
