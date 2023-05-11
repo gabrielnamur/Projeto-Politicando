@@ -1,3 +1,5 @@
+
+
 /*GERAL*/
 body{
     background: #eee!important;
@@ -13,8 +15,8 @@ form {
 }
 /*INPUT E TEXTAREA*/
 .input-group-addon{
-    background:#5d5d5d!important; 
-    border: 1px solid #5d5d5d!important;
+    background:#005765!important; 
+    border: 1px solid #005765!important;
     color: #eee!important;
 }
 input{
@@ -25,7 +27,7 @@ input{
     font-size: 22px;
     background: none;
     background-image: none;
-    border: 1px solid #5d5d5d;
+    border: 1px solid #005765;
     color: #464646!important;
     border-radius: 0;
     -webkit-transition: border-color .25s ease, box-shadow .25s ease;
@@ -33,7 +35,7 @@ input{
 }
 input{
     outline: 0;
-    border-color: #5d5d5d;
+    border-color: #005765;
 }
 /*LINKS*/
 form p{
@@ -43,7 +45,7 @@ form p{
 
 form a {
     text-decoration: none;
-    color: #5d5d5d;
+    color: #005765;
     -webkit-transition: .5s ease;
     transition: .5s ease;
 }
@@ -57,13 +59,13 @@ a:focus{
 }
 /*BOTOES*/
 .botao {
-    padding: 15px 0;
+    padding: 10px 0;
     letter-spacing: .1em;
     font-size: 2rem;
     font-weight: 600;
     text-transform: uppercase;
     outline: none;
-    background: #5d5d5d;
+    background: #005765;
     border: 0;
     border-radius: 0;
     color: #eee!important;
@@ -75,3 +77,4 @@ a:focus{
 .botao:hover, .botao:focus {
     background: #0b3c44;
 }
+
