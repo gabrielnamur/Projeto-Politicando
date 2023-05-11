@@ -15,8 +15,8 @@ form {
 }
 /*INPUT E TEXTAREA*/
 .input-group-addon{
-    background:#005765!important; 
-    border: 1px solid #005765!important;
+    background:#464646!important; 
+    border: 1px solid #464646!important;
     color: #eee!important;
 }
 input{
@@ -27,7 +27,7 @@ input{
     font-size: 22px;
     background: none;
     background-image: none;
-    border: 1px solid #005765;
+    border: 1px solid #464646;
     color: #464646!important;
     border-radius: 0;
     -webkit-transition: border-color .25s ease, box-shadow .25s ease;
@@ -35,7 +35,7 @@ input{
 }
 input{
     outline: 0;
-    border-color: #005765;
+    border-color: #464646;
 }
 /*LINKS*/
 form p{
@@ -45,7 +45,7 @@ form p{
 
 form a {
     text-decoration: none;
-    color: #005765;
+    color: #464646;
     -webkit-transition: .5s ease;
     transition: .5s ease;
 }
@@ -65,7 +65,7 @@ a:focus{
     font-weight: 600;
     text-transform: uppercase;
     outline: none;
-    background: #005765;
+    background: #464646;
     border: 0;
     border-radius: 0;
     color: #eee!important;

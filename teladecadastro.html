@@ -16,21 +16,43 @@
     <form class="container" action="#" method="#">
         <div class="col-md-12">
             <center><h1 style="color: #000; padding-bottom: 10px;">Cadastro</h1></center>
-            <!-- Input Usuario-->
+            <!-- Input Nome e Sobrenome-->
             <div class="form-group"> 
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" name="usuario" placeholder="Nome Completo" required autocomplete="off"/>
+                        <input type="text" name="usuario" placeholder="Nome e Sobrenome" required autocomplete="off"/>
                     </div>
                 </div>
             </div>
           <br><br><br>
+          <!-- Input Telefone-->
+          <div class="form-group"> 
+            <div class="col-md-12 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" name="telefone" placeholder="Telefone" required autocomplete="off"/>
+                  
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Sexo-->
+        <div class="form-group"> 
+            <div class="col-md-12 inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" name="sexo" placeholder="Sexo" required autocomplete="off"/>
+                  
+                </div>
+            </div>
+        </div>
+
           <div class="form-group"> 
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" name="usuario" placeholder="Usuário" required autocomplete="off"/>
+                        <input type="text" name="e-mail" placeholder="E-mail" required autocomplete="off"/>
                     </div>
                   </div>
             </div>
@@ -57,11 +79,17 @@
                     </div>
                 </div>
             <br><br>
+
+            
+
             <p>Para confirmar seu cadastro clique em salvar </p>
             <!-- Input Botão de enviar-->
             <input class="botao" type="submit" value="CADASTRE-SE"><br><br>
             Já tem sua conta? Faça seu login agora!
-            <a href="telalogin.html"><button>Faça seu login!</button></a>
+            
+            <button onclick="telalogin.html">
+                <a href="telalogin.html">Faça seu login!</a>
+            </button>
       </div>
     </form>
 </body>
