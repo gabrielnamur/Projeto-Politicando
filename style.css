@@ -38,6 +38,8 @@ body{
     height: 80%;
 }
 
+
+
 .sections main .firstContainer,.secondContainer{
     font-size: 14px;
     width: 90%;
@@ -93,6 +95,13 @@ body{
     border-radius: 500px;
     border: none;
     outline: none;
+}
+
+.sevenContainer{
+    display: flex !important; 
+    flex-direction: row !important;
+    align-items: center !important;       
+    justify-content: space-around !important; 
 }
 
 #contactButton{
