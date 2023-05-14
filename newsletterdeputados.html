@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Newsletter dos Deputados Federais</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Breaking News! 📰</h1>
+    <form id="newsForm">
+        <label for="publicFigure">Deputado(a) Federal:</label>
+        <input type="text" id="publicFigure" required><br><br>
+        
+        <input type="submit" value="Buscar Notícias">
+    </form>
+
+    <div id="newsResults"></div>
+
+    <script>
+        // Evento de envio do formulário
+        $('#newsForm').submit(function(event) {
+            event.preventDefault();
+            var publicFigure = $('#publicFigure').val();
+
+            // Chamada AJAX para a API GNews
+            $.ajax({
+                url: 'https://gnews.io/api/v4/search',
+                type: 'GET',
+                data: {
+                    q: publicFigure + ' deputado federal',
+                    token: 'f707b2bbade36f595d64bc8d6bf84965',
+                    lang: 'pt',
+                    country: 'br'
+                },
+                success: function(response) {
+                    // Processar e exibir as notícias
+                    var news = response.articles;
+                    var newsResults = $('#newsResults');
+                    newsResults.empty();
+
+                    if (news.length > 0) {
+                        newsResults.append('<h2>Notícias sobre ' + publicFigure + '</h2>');
+
+                        for (var i = 0; i < news.length; i++) {
+                            var article = news[i];
+                            newsResults.append('<h3>' + article.title + '</h3>');
+                            newsResults.append('<p>' + article.description + '</p>');
+                            newsResults.append('<a href="' + article.url + '">Leia mais</a><br><br>');
+                        }
+                    } else {
+                        newsResults.append('<p>Nenhuma notícia encontrada.</p>');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.status + ': ' + xhr.statusText;
+                    alert('Erro ao acessar as notícias. Detalhes do erro: ' + errorMessage);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
