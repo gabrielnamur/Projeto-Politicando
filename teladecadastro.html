@@ -21,7 +21,7 @@
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" name="usuario" placeholder="Nome e Sobrenome" required autocomplete="off"/>
+                        <input type="text" id="ipt_usuario" placeholder="Nome e Sobrenome" required autocomplete="off"/>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <div class="col-md-12 inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" name="telefone" placeholder="Telefone" required autocomplete="off"/>
+                    <input type="number" id="ipt_telefone" placeholder="Telefone" required autocomplete="off"/>
                   
                 </div>
             </div>
@@ -42,7 +42,7 @@
             <div class="col-md-12 inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                    <input type="password" name="sexo" placeholder="Sexo" required autocomplete="off"/>
+                    <input type="text" id="ipt_sexo" placeholder="Sexo" required autocomplete="off"/>
                   
                 </div>
             </div>
@@ -52,7 +52,7 @@
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" name="e-mail" placeholder="E-mail" required autocomplete="off"/>
+                        <input type="text" id="ipt_email" placeholder="E-mail" required autocomplete="off"/>
                     </div>
                   </div>
             </div>
@@ -62,7 +62,7 @@
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input type="password" name="senha" placeholder="Senha" required autocomplete="off"/>
+                        <input type="password" id="ipt_senha" placeholder="Senha" required autocomplete="off"/>
                       
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input type="password" name="senha" placeholder="Confirme a Senha" required autocomplete="off"/>
+                        <input type="password" id="ipt_confirmarsenha" placeholder="Confirme a Senha" required autocomplete="off"/>
                       
                     </div>
                 </div>
@@ -84,13 +84,77 @@
 
             <p>Para confirmar seu cadastro clique em salvar </p>
             <!-- Input Botão de enviar-->
-            <input class="botao" type="submit" value="CADASTRE-SE"><br><br>
+            <input class="botao" type="submit" value="CADASTRE-SE" onclick="validarFormulario()"><br><br>
             Já tem sua conta? Faça seu login agora!
             
-            <button onclick="telalogin.html">
+            <button onclick="validarFormulario(); telalogin.html";>
                 <a href="telalogin.html">Faça seu login!</a>
             </button>
       </div>
     </form>
 </body>
 </html>
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<!-- Início da função p/ validar o formulário -->
+<script>
+    function validarFormulario() {
+      var nomeUsuario = document.getElementById("ipt_usuario").value;
+      var telefone = document.getElementById("ipt_telefone").value;
+      var sexo = document.getElementById("ipt_sexo").value;
+      var email = document.getElementById("ipt_email").value;
+      var senha = document.getElementById("ipt_senha").value;
+      var confirmacao = document.getElementById("ipt_confirmarsenha").value;
+
+      // Validar nome do usuário
+      if (nomeUsuario === ""){
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Campo obrigatório vazio.',
+            text: 'É necessário preencher com o nome do funcionário.',
+            showConfirmButton: true,
+        })
+        return false;
+    }
+
+      // Validar email
+      var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!emailValido) {
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Campo inválido.',
+            text: 'É necessário preencher com os campos corretos de e-mail.',
+            showConfirmButton: true,
+        });
+        return false;
+    }
+
+      // Validar senha
+      if (senha.length < 8){
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Campo inválido.',
+            text: 'A senha deve ter no mínimo 8 caracteres.',
+            showConfirmButton: true,
+        })
+        return false;
+    }
+
+      // Validar confirmação de senha
+      if (senha !== confirmacao){
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Campo inválido.',
+            text: 'A senha e a confirmação não coincidem.',
+            showConfirmButton: true,
+        })
+        return false;
+    }
+
+      return true;
+}
+</script>

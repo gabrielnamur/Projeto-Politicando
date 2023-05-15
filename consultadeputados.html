@@ -9,20 +9,24 @@
   <body>
     <header>
       <nav>
-          <div class = "imgBox">
-              <img src = "./logo_img.png" alt="">
+          <div class="imgBox">
+              <a href="./index.html">
+                  <img src="./logo_img.png" alt="">
+              </a>
           </div>
           <div class="menuBox">
               <ul class="menuList">
-                <li class="menuTopics"><a href="index.html">Início</a></li>
-                <li class="menuTopics"><a href="#Nossovalores">Valores</a></li>
-                <li class="menuTopics"><a href="#informacoes">Métricas</a></li>
-                <li class="menuTopics"><a href="#faqpolitico">FAQ</a></li>
-                <li class="menuTopics"><a href="#newsletter">Newsletter</a></li>
-                <li class="menuTopics"><a href="#questionario">Questionário</a></li>
-                <li class="menuTopics"><a href="#guiadebusca">Buscar</a></li>
-                <li class="menuTopics"><a href="#contato">Contatos</a></li>
-                <li class="menuButton"><a href="teladecadastro.html"><button class="botao">Cadastre-se!</button></a></li>
+                <li class="menuTopics"><a href="telalogada.html">Início</a></li>
+                <li class="menuTopics"><a href="telalogada.html">Valores</a></li>
+                <li class="menuTopics"><a href="telalogada.html">Métricas</a></li>
+                <li class="menuTopics"><a href="FAQ.html">FAQ</a></li>
+                <li class="menuTopics"><a href="newsletterdeputados.html">News</a></li>
+                <li class="menuTopics"><a href="consultadeputados.html">Avalie!</a></li>
+                <li class="menuTopics"><a href="questionario_politico.html">Questionário</a></li>
+                <li class="menuTopics"><a href="telalogada.html">Contatos</a></li>
+                <li class="menuTopics"><a href="index.html">Sair</a></li>
+                  <div>Seja Bem-vindo, Usuário!</div>
+                  </li>
               </ul>
           </div>
       </nav>
@@ -30,13 +34,17 @@
   <div class="listadeputados"><h1>Lista de Deputados Federais</h1>
     <input id="ipt_nome_deputado" type="text" placeholder="Insira o nome do Deputado Federal">
     <button onclick="ver_deputado()">Veja o Status!</button>
-    <button onclick="votarPositivo()">Votar Positivo</button>
-    <button onclick="votarNegativo()">Votar Negativo</button>
-    <div><canvas id="chart"></canvas></div>
-    <table>
-      <tbody id="deputados">
-      </tbody>
-    </table>
+    <button onclick="votarPositivo()">👍</button>
+    <button onclick="votarNegativo()">👎</button>
+    <div class="dep_container">
+      <table style="width: 60%;">
+        <tbody id="deputados">
+          
+        </tbody>
+      </table>
+      <canvas style="width: 20px ;" id="chart"></canvas>
+    </div>
+    
     </div>
     <script>
         function ver_deputado(){
@@ -57,9 +65,9 @@
               var texto = `<tr>
                 <td>${deputado.nome} - </td>
                   <td>${deputado.siglaPartido} - </td>
-                  <img src="${deputado.urlFoto}" class="foto-deputado" width="120px">
                   <td>${deputado.siglaUf} - </td>
                   <td>${deputado.email} </td>
+                  <img src="${deputado.urlFoto}" class="foto-deputado" width="120px">
                 </tr>`
 
 console.log(deputado);
@@ -85,7 +93,7 @@ console.log(deputado);
     }
 
     function atualizarGrafico() {
-      var ctx = document.getElementById('chart').getContext('2d');
+      var ctx = document.getElementById('chart')
       var chart = new Chart(ctx, {
         type: 'pie',
         data: {

@@ -176,3 +176,27 @@ p{
     padding-top: 2%;
 
 }
+
+#chart{
+    display: flex;
+    width: 700px !important;
+    height: 100% !important;
+}
+
+.listadeputados .dep_container{
+    display: flex;
+}
+
+.listadeputados .dep_container table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#deputados {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+
+}
