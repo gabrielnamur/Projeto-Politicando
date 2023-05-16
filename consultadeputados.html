@@ -5,6 +5,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        text-align: center;
+        font-size: 36px;
+        margin-top: 50px;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -31,7 +42,8 @@
           </div>
       </nav>
   </header>
-  <div class="listadeputados"><h1>Lista de Deputados Federais</h1>
+  <div class="listadeputados"><h1>Avaliar Deputados | Politicando® 🔎</h1>
+    <h3>Pesquise o Deputado da atual legislatura abaixo e avalie-no agora!</h3><br>
     <input id="ipt_nome_deputado" type="text" placeholder="Insira o nome do Deputado Federal">
     <button onclick="ver_deputado()">Veja o Status!</button>
     <button onclick="votarPositivo()">👍</button>
@@ -63,9 +75,9 @@
 
 
               var texto = `<tr>
-                <td>${deputado.nome} - </td>
-                  <td>${deputado.siglaPartido} - </td>
-                  <td>${deputado.siglaUf} - </td>
+                <td>${deputado.nome} |</td> 
+                  <td>${deputado.siglaPartido} |</td>
+                  <td>${deputado.siglaUf} |</td>
                   <td>${deputado.email} </td>
                   <img src="${deputado.urlFoto}" class="foto-deputado" width="120px">
                 </tr>`

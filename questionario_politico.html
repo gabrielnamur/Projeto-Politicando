@@ -5,6 +5,17 @@
   <link rel="stylesheet" href="style.css">
   <title>Questionário Político</title>
   <link rel="stylesheet" href="questionario_politico.css">
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      margin-top: 50px;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -31,11 +42,13 @@
         </div>
     </nav>
 </header><br>
-  <h1>Questionário Político | Politicando®</h1><br>
+  <h1>Questionário Político | Politicando® 📋</h1><br>
+  <h2>Responda atentamente o questionário e obtenha sua orientação política baseada em métricas!</h2>
+  <br>
 
   <div id="quiz">
     <div class="question">
-      <p>1. O que você acha da intervenção do Estado na economia?</p>
+      <p><b>1. O que você acha da intervenção do Estado na economia?</b></p>
       <div class="options">
         <label><input type="radio" name="q1" value="1"> Totalmente a favor</label>
         <label><input type="radio" name="q1" value="2"> A favor em alguns casos</label>
@@ -46,7 +59,7 @@
     </div>
     
     <div class="question">
-      <p>2. Qual sua opinião sobre a privatização de empresas estatais?</p>
+      <p><b>2. Qual sua opinião sobre a privatização de empresas estatais?</b></p>
       <div class="options">
         <label><input type="radio" name="q2" value="1"> Totalmente a favor</label>
         <label><input type="radio" name="q2" value="2"> A favor em alguns casos</label>
@@ -57,7 +70,7 @@
     </div>
 
     <div class="question">
-      <p>3. Como você se posiciona em relação aos direitos LGBT?</p>
+      <p><b>3. Como você se posiciona em relação aos direitos LGBTQIA+?</b></p>
       <div class="options">
         <label><input type="radio" name="q3" value="1"> Totalmente a favor</label>
         <label><input type="radio" name="q3" value="2"> A favor em alguns casos</label>
@@ -68,7 +81,7 @@
     </div>
 
     <div class="question">
-      <p>4. Qual é a sua visão sobre o papel do Estado na educação?</p>
+      <p><b>4. Qual é a sua visão sobre o papel do Estado na educação?</b></p>
       <div class="options">
         <label><input type="radio" name="q4" value="1"> Deve ser totalmente público</label>
         <label><input type="radio" name="q4" value="2"> Deve ser parcialmente público</label>
@@ -79,7 +92,7 @@
     </div>
 
     <div class="question">
-      <p>5. Qual é a sua opinião sobre o sistema de saúde público?</p>
+      <p><b>5. Qual é a sua opinião sobre o sistema de saúde público?</b></p>
       <div class="options">
         <label><input type="radio" name="q5" value="1"> Deve ser totalmente público</label>
         <label><input type="radio" name="q5" value="2"> Deve haver uma mistura de público e privado</label>
@@ -90,7 +103,7 @@
     </div>
 
     <div class="question">
-      <p>6. Como você se posiciona em relação às políticas de imigração?</p>
+      <p><b>6. Como você se posiciona em relação às políticas de imigração?</b></p>
       <div class="options">
         <label><input type="radio" name="q6" value="1"> Deve haver abertura total</label>
         <label><input type="radio" name="q6" value="2"> Deve haver controle, mas com facilidades</label>
@@ -101,7 +114,7 @@
     </div>
 
     <div class="question">
-      <p>7. O que você pensa sobre a pena de morte?</p>
+      <p><b>7. O que você pensa sobre a pena de morte?</b></p>
       <div class="options">
         <label><input type="radio" name="q7" value="1"> Sou a favor</label>
         <label><input type="radio" name="q7" value="2"> Sou a favor em casos específicos</label>
@@ -112,7 +125,7 @@
     </div>
 
     <div class="question">
-      <p>8. Qual é a sua visão sobre o controle de armas de fogo?</p>
+      <p><b>8. Qual é a sua visão sobre o controle de armas de fogo?</b></p>
       <div class="options">
         <label><input type="radio" name="q8" value="1"> Deve haver controle rigoroso</label>
         <label><input type="radio" name="q8" value="2"> Deve haver controle, mas com algumas restrições</label>
@@ -123,7 +136,7 @@
     </div>
 
     <div class="question">
-      <p>9. Como você se posiciona em relação à proteção ambiental?</p>
+      <p><b>9. Como você se posiciona em relação à proteção ambiental?</b></p>
       <div class="options">
         <label><input type="radio" name="q9" value="1"> Deve ser prioridade máxima</label>
         <label><input type="radio" name="q9" value="2"> Deve ser importante, mas balanceado com outros interesses</label>
@@ -134,7 +147,7 @@
     </div>
 
     <div class="question">
-      <p>10. Qual é a sua opinião sobre programas de assistência social?</p>
+      <p><b>10. Qual é a sua opinião sobre programas de assistência social?</b></p>
       <div class="options">
         <label><input type="radio" name="q10" value="1"> Deve ser ampliado para garantir uma rede de proteção social abrangente</label>
         <label><input type="radio" name="q10" value="2"> Deve ser mantido nos casos de extrema necessidade</label>
@@ -144,7 +157,10 @@
       </div>
     </div>
 
-    <button onclick="calculateResult()">Enviar</button>
+    <button onclick="calculateResult()">Enviar</button><br><br>
+    <span><b>Disclaimer: O questionário é baseado em métricas e seu resultado
+      poderá não refletir na sua efetiva orientação política.</b>
+    </span>
   </div>
 
   <div id="result" class="result" style="display: none;"></div>
