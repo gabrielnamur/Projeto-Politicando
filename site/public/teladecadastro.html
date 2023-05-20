@@ -1,0 +1,172 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="teladecadastrocss.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tela de Cadastro</title>
+</head>
+
+<body>
+    <!-- FORM LOGIN -->
+    <form class="container" action="#" method="#">
+        <div class="col-md-12">
+            <center>
+                <h1 style="color: #000; padding-bottom: 10px;">Cadastro</h1>
+            </center>
+            <!-- Input Nome e Sobrenome-->
+            <div class="form-group">
+                <div class="col-md-12 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" id="ipt_usuario" placeholder="Nome e Sobrenome" required
+                            autocomplete="off" />
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <!-- Input Telefone-->
+            <div class="form-group">
+                <div class="col-md-12 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="number" id="ipt_telefone" placeholder="Telefone" required autocomplete="off" />
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Sexo-->
+            <div class="form-group">
+                <div class="col-md-12 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" id="ipt_sexo" placeholder="Sexo" required autocomplete="off" />
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input type="text" id="ipt_email" placeholder="E-mail" required autocomplete="off" />
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <!-- Input Senha-->
+            <div class="form-group">
+                <div class="col-md-12 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" id="ipt_senha" placeholder="Senha" required autocomplete="off" />
+
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+            <!-- Input Senha-->
+            <div class="form-group">
+                <div class="col-md-12 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input type="password" id="ipt_confirmarsenha" placeholder="Confirme a Senha" required
+                            autocomplete="off" />
+
+                    </div>
+                </div>
+                <br><br>
+
+
+
+                <p>Para confirmar seu cadastro clique em cadastre-se. </p>
+                <!-- Input Botão de enviar-->
+                <input class="botao" type="submit" value="CADASTRE-SE" onclick="validarFormulario()"><br><br>
+                Já tem sua conta? Faça seu login agora!
+
+                <button onclick="validarFormulario(); telalogin.html" ;>
+                    <a href="telalogin.html">Faça seu login!</a>
+                </button>
+            </div>
+    </form>
+</body>
+
+</html>
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<!-- Início da função p/ validar o formulário -->
+<script>
+    function validarFormulario() {
+        var dadosCliente = {
+            nome: ipt_usuario.value,
+            sexo: ipt_sexo.value,
+            email: ipt_email.value,
+            senha: ipt_senha.value,
+            confirmacao: ipt_confirmarsenha.value
+        }
+        var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dadosCliente.email);
+        // Validar nome do usuário
+        if (dadosCliente.nome === "" || dadosCliente.email === "" || dadosCliente.senha === "" || dadosCliente.confirmacao === "") {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Campo obrigatório vazio.',
+                text: 'É necessário preencher com o nome do funcionário.',
+                showConfirmButton: true,
+            })
+        } else if (!emailValido) {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Campo inválido.',
+                text: 'É necessário preencher com os campos corretos de e-mail.',
+                showConfirmButton: true,
+            })
+        } else if (dadosCliente.senha.length < 8) {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Campo inválido.',
+                text: 'A senha deve ter no mínimo 8 caracteres.',
+                showConfirmButton: true,
+            })
+        } else if (dadosCliente.senha !== dadosCliente.confirmacao) {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Campo inválido.',
+                text: 'A senha e a confirmação não coincidem.',
+                showConfirmButton: true,
+            })
+        } else {
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    clienteServer: dadosCliente
+                })
+            }).then(function (resposta) {
+                console.log("resposta: ", resposta);
+                if (resposta.ok) {
+                    alert('Cadastro realizado com sucesso')
+                } else {
+                    alert ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+            return false;
+        }
+    }
+
+</script>
