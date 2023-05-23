@@ -1,45 +1,104 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="telalogincss.css">
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Tela de login</title>
-        <!-- CSS bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    
-        <!--JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    </head>
+
+<head>
+    <link rel="stylesheet" href="telalogincss.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tela de login</title>
+    <!-- CSSx bootstrap -->
+</head>
+
 <body>
-<!-- FORM LOGIN -->
+    <!-- FORM LOGIN -->
     <form class="container" action="#" method="#">
         <div class="col-md-12">
-            <center><h1 style="color: #000; padding-bottom: 10px;">LOGIN</h1></center>
+            <center>
+                <h1 style="color: #000; padding-bottom: 10px;">LOGIN</h1>
+            </center>
             <!-- Input Usuario-->
-            <div class="form-group"> 
+            <div class="form-group">
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" name="usuario" placeholder="Usuário" required autocomplete="off"/>
+                        <input type="text" id="iptemail" placeholder="Usuário" required autocomplete="off" />
                     </div>
                 </div>
             </div>
             <br><br><br>
             <!-- Input Senha-->
-            <div class="form-group"> 
+            <div class="form-group">
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input type="password" name="senha" placeholder="Senha" required autocomplete="off"/>
+                        <input type="password" id="iptsenha" placeholder="Senha" required autocomplete="off" />
                     </div>
                 </div>
             </div>
             <br><br>
             <!-- Input Botão de enviar-->
             <!-- input class="botao" type="submit" value="Entrar" href="telalogada.html" -->
-            <button><a href="telalogada.html">Entrar!</a></button>
+            <button onclick="entrar()"><a href="telalogada.html">Entrar!</a></button>
         </div>
     </form>
 </body>
+
 </html>
+<script>
+    function entrar() {
+        var usuario = {
+            email: iptemail.value,
+            senha: iptsenha.value
+        }
+
+        if (usuario.usuario == "" || usuario.senha == "") { 
+            alert("Erro de Senha ou Usuário!") 
+        } else {
+            fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                usuario
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+        }
+
+</script>

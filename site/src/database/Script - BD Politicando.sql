@@ -14,7 +14,7 @@ INSERT INTO Usuário VALUES
 	(1, 'Gabriel', 'M', 'namur_gabriel@yahoo.com', '123', '123');
 
 CREATE TABLE Questionário (
-idQuestionario INT PRIMARY KEY,
+idQuestionario INT PRIMARY KEY auto_increment,
 resultado VARCHAR(50),
 fkUsuario INT 
 );

@@ -185,24 +185,53 @@
     }
     
     function determineOrientation(score) {
+      var posicionamento;
+      
       if (score < 15) {
-        return "Esquerda";
+        posicionamento = "Esquerda";
       } else if (score < 25) {
-        return "Centro-Esquerda";
+        posicionamento = "Centro-Esquerda";
       } else if (score < 35) {
-        return "Centro";
+        posicionamento = "Centro";
       } else if (score < 45) {
-        return "Centro-Direita";
+        posicionamento = "Centro-Direita";
       }
         else if (score < 55) {
-        return "Direita";
+          posicionamento = "Direita";
       } else {
-        return "Extrema Direita";
+        posicionamento = "Extrema Direita";
       }
+      return posicionamento;
     }
   </script>
 </body>
 </html>
+<script>
+            fetch("/questionario/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    resultado: posicionamento
+                })
+            }).then(function (resposta) {
+                console.log("resposta: ", resposta);
+                if (resposta.ok) {
+                    alert('Resultado computado com sucesso.')
+                } else {
+                    alert ("Houve um erro ao computar seu resultado.");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+            return false;
+
+</script>
 
 
 
