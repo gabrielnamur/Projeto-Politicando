@@ -18,8 +18,7 @@ function enviarResultado (resultadoUsuario) {
      console.log("Acessei o Questionário Model na função enviarResultado");
 
      var instrucao = `INSERT INTO Questionário (resultado, fkUsuario) VALUES
-        ("${resultadoUsuario}",  )
-     `
+        ("${resultadoUsuario}")`;
 
 }
 
