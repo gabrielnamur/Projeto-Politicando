@@ -13,17 +13,35 @@ function cadastrar(dadosCliente) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+    var idUsuario = 0;
 
-function enviarResultado (resultadoUsuario) {
+function enviarResultado (resultadoUsuario, emailUsuario, senhaUsuario) {
      console.log("Acessei o Questionário Model na função enviarResultado");
+     enviarResultado2(emailUsuario, senhaUsuario);
+     console.log(idUsuario);
+     var instrucao = `
+    INSERT INTO Questionário (resultado, fkUsuario) VALUES ("${resultadoUsuario}", ${idUsuario});`
+    
+    console.log("Executando a instrução SQL: \n" + instrucao);
 
-     var instrucao = `INSERT INTO Questionário (resultado, fkUsuario) VALUES
-        ("${resultadoUsuario}")`;
+    return database.executar(instrucao);
 
 }
 
+function enviarResultado2(emailUsuario, senhaUsuario) {
+    console.log("Acessei o Questionário Model na função enviarResultado");
+
+    var instrucao = `SELECT idUsuario FROM Usuário WHERE email = "${emailUsuario}" AND senha = "${senhaUsuario}"`;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+
+    var resultado = database.executar(instrucao);
+    var idUsuario = resultado[0]; //.idUsuario
+    console.log(idUsuario);
+
+    return idUsuario;
+}
+
 module.exports = {
-    entrar,
-    cadastrar,
-    listar,
+    enviarResultado
 };
