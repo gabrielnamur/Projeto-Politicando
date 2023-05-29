@@ -50,7 +50,7 @@ body{
 }
 
 .sections main .secondContainer img{
-    width: 100%;
+    width: 50%;
     border-radius: 60px 0px 60px 0px;
 }
 
@@ -156,9 +156,15 @@ a{
     width: 100%;
 }
 
+.firstContainer p{
+    text-align: left;
+    font-size: 18px;
+    width: 108%;
+}
 p{
     text-align: left;
     font-size: 18px;
+    width: 50%;
 }
 
 .btn_area_dark{
@@ -169,6 +175,29 @@ p{
 .rodape{
     display: flex;
     justify-content: space-between;
+    width: 100%;
+}
+    
+
+.socialMedia{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 73%;
+    margin-top: -33px;
+}
+
+.topics h1{
+    position: absolute;
+    left: 16%;
+    margin-top: -35px;
+}
+
+.rodape_contatos{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: 40px;
 }
 
 .listadeputados{

@@ -51,7 +51,7 @@
                     <li class="menuTopics"><a href="questionario_politico.html">Questionário</a></li>
                     <li class="menuTopics"><a href="telalogada.html">Contatos</a></li>
                     <li class="menuTopics"><a href="index.html">Sair</a></li>
-                    <div>Seja Bem-vindo, Usuário!</div>
+                    <div>Seja Bem-vindo, <span id="span_nome_usuario"></span>!</div>
                     </li>
                 </ul>
             </div>
@@ -82,3 +82,8 @@
 	</div>
 </body>
 </html>
+<script>
+    var spanNomeUsuario = document.getElementById("span_nome_usuario")
+    spanNomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO");
+    console.log(spanNomeUsuario);
+</script>

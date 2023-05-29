@@ -11,5 +11,9 @@ router.post("/cadastrar", function (req, res) {
     questionarioController.enviarResultado(req, res);
 });
 
+router.get("/puxarResultados", function (req, res) {
+    questionarioController.receberResultado(req, res);
+});
+
 module.exports = router;
 

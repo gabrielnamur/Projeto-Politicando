@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <script src="./questionario_login.js"></script>
     <header>
         <nav>
             <div class="imgBox">
@@ -30,7 +31,7 @@
                     <li class="menuTopics"><a href="#questionario">Questionário</a></li>
                     <li class="menuTopics"><a href="#contato">Contatos</a></li>
                     <li class="menuTopics"><a href="index.html">Sair</a></li>
-                    <div>Seja Bem-vindo, Gabriel!</div>
+                    <div id="divnometela">Seja Bem-vindo, <span id="span_nome_usuario"></span>!</div>
                     </li>
                 </ul>
             </div>
@@ -46,7 +47,7 @@
                 <h2>A Politicando® é a ferramenta completa para os que desejam se informar sobre
                     a atividade de seus representantes e participar ativamente da vida política do país. </h2>
                 <p> Com informações atualizadas sobre os deputados federais em exercício e com
-                    conteúdos informativos, nosso site tem tudo o que você precisa para tomar decisões mais conscientes. 
+                    conteúdos informativos, nosso site tem tudo o que você precisa para tomar decisões mais conscientes.
                     Conheça seus representantes e contribua para uma sociedade mais democrática!</p>
             </div>
             <img src="logo_simulador.png" alt="" style="width: 300px;">
@@ -110,12 +111,12 @@
                 <h2>Quer entender melhor como funciona a política institucional do país?
                     Não perca a oportunidade de conferir nosso FAQ Político, onde reunimos
                     as principais dúvidas acerca do tema.</h2>
-                <p>Com linguagem clara e objetiva, nosso FAQ irá esclarecer suas dúvidas e 
-                    ajudá-lo a compreender melhor o funcionamento do sistema político brasileiro. <br> 
+                <p>Com linguagem clara e objetiva, nosso FAQ irá esclarecer suas dúvidas e
+                    ajudá-lo a compreender melhor o funcionamento do sistema político brasileiro. <br>
                     Clique agora no botão abaixo e comece a aprender mais sobre política!</p>
                 <div class="buttonBox">
-                    <button style="background-color: #f5f5f5;" class="btn_area_dark"><a
-                            href="FAQ.html">Conheça nosso FAQ Político</a></button>
+                    <button style="background-color: #f5f5f5;" class="btn_area_dark"><a href="FAQ.html">Conheça nosso
+                            FAQ Político</a></button>
 
                 </div>
                 <div class="secondContainer">
@@ -144,14 +145,16 @@
         <main>
             <div class="firstContainer">
                 <h1 id="guiadebusca">Avaliar Deputados 🔎</h1>
-                <p> <h2>Avalie o desempenho dos Deputados Federais 
-                    e compartilhe sua opinião sobre seu desempenho. Nosso sistema exclusivo 
-                    permite que você classifique o trabalho dos deputados como positivo ou 
+                <p>
+                <h2>Avalie o desempenho dos Deputados Federais
+                    e compartilhe sua opinião sobre seu desempenho. Nosso sistema exclusivo
+                    permite que você classifique o trabalho dos deputados como positivo ou
                     negativo.</h2>
-                    <p>Visualize os resultados em um gráfico interativo.  
+                <p>Visualize os resultados em um gráfico interativo.
                     Sua opinião importa! Faça a diferença hoje mesmo!</p>
                 <div class="buttonBox">
-                    <button style="background-color: #f5f5f5;"><a href="consultadeputados.html">Clique agora!</a></button>
+                    <button style="background-color: #f5f5f5;"><a href="consultadeputados.html">Clique
+                            agora!</a></button>
                 </div>
                 <div class="secondContainer">
                     <img src="imgs/luminosity.png" alt="">
@@ -164,12 +167,14 @@
             <div class="firstContainer sevenContainer">
                 <div>
                     <h1 id="questinario">Questinário Político 📋</h1>
-                    <p><h2>Responda o questionário agora e descubra sua orientação política baseada
+                    <p>
+                    <h2>Responda o questionário agora e descubra sua orientação política baseada
                         em métricas!</h2>
-                        <p>Clique abaixo e confira!</p>
+                    <p>Clique abaixo e confira!</p>
                     </p>
                     <div class="buttonBox">
-                        <button style="background-color: #969696;"><a href="questionario_politico.html">Faça o teste agora!</a></button>
+                        <button style="background-color: #969696;"><a href="questionario_politico.html">Faça o teste
+                                agora!</a></button>
                     </div>
                 </div>
                 <img src="logo_questionario.png" alt="" style="width: 200px;">
@@ -210,3 +215,10 @@
 </body>
 
 </html>
+
+<script>
+
+    var spanNomeUsuario = document.getElementById("span_nome_usuario")
+    spanNomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO");
+    console.log(spanNomeUsuario);
+</script>

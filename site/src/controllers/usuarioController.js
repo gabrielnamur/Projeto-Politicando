@@ -95,5 +95,5 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
 }
