@@ -81,6 +81,8 @@
                 <h1>Principais Métricas 📊</h1>
                 <h2>Saiba mais da Composição da Atual Legislatura!</h2><br>
                 <div class="graficosCamara">
+                    <img 
+                        src="./fotos-metricas.png">
                     <img
                         src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/bancada-desktop.jpg">
                     <img
@@ -189,27 +191,33 @@
                     <div class="secondContainer">
                         <div class="rodape">
                             <div class="topics">
-                                <h1>Endereço</h1>
-                                <p><span class="fa-solid fa-location-dot"></span><span>Rua Haddock Lobo, nº. 595</span>
+                                <h1>Sobre o Desenvolvedor</h1>
+                                <img src="./fotoperfil.jpg">
+                                <p>Gabriel Namur, advogado, especialista em direito processual civil. Membro Efetivo da
+                                    Comissão da Jovem Advocacia da OAB/SP.</p>
                                 </p>
                             </div>
-                            <div class="topics">
-                                <h1>Contato</h1>
-                                <p><span class="fa-solid fa-phone fa-lg"></span><span>(11) 3031-2022</span></p>
-                                <p><span
-                                        class="fa-solid fa-comment fa-lg"></span><span>atendimento@politicando.br</span>
-                                </p>
-                            </div>
-                            <div class="topics">
-                                <h1>Redes Sociais</h1>
-                                <div class="socialMedia">
-
-                                    <p><a href=""><span class="fa-brands fa-instagram fa-2xl"></span></a></p>
-                                    <p><a href=""><span class="fa-brands fa-linkedin fa-2xl"></span></a></p>
+                            <div class="rodape_contatos">
+                                <div class="endereco">
+                                    <h1>Endereço</h1>
+                                    <p><span class="fa-solid fa-location-dot"></span><span>Rua Haddock Lobo, nº.
+                                            595</span>
+                                    </p>
+                                </div>
+                                <div class="topics-contatos">
+                                    <h1>Contatos</h1>
+                                    <div class="contatos">
+                                        <span class="fa-solid fa-phone fa-lg"></span><br>
+                                        <span class="fa-solid fa-comment fa-lg"></span>
+                                    </div>
+                                    <div class="socialMedia">   
+                                            <span>(11) 3031-2022</span>
+                                
+                                       <span>atendimento@politicando.br</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
         </main>
     </footer>
 </body>
@@ -217,7 +225,6 @@
 </html>
 
 <script>
-
     var spanNomeUsuario = document.getElementById("span_nome_usuario")
     spanNomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO");
     console.log(spanNomeUsuario);

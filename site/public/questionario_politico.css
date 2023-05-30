@@ -34,3 +34,8 @@ body {
     margin-left: 10px;
 
   }
+
+#div-chart {
+  display: flex;
+  width: 500px;
+}

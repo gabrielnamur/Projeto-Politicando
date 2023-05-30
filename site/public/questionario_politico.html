@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <link rel="stylesheet" href="header.css">
   <link rel="stylesheet" href="style.css">
@@ -11,6 +12,7 @@
       background-color: #f2f2f2;
       font-family: Arial, sans-serif;
     }
+
     h1 {
       text-align: center;
       font-size: 36px;
@@ -18,31 +20,32 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav>
-        <div class="imgBox">
-            <a href="./index.html">
-                <img src="./logo_img.png" alt="">
-            </a>
-        </div>
-        <div class="menuBox">
-            <ul class="menuList">
-              <li class="menuTopics"><a href="telalogada.html">Início</a></li>
-              <li class="menuTopics"><a href="telalogada.html">Valores</a></li>
-              <li class="menuTopics"><a href="telalogada.html">Métricas</a></li>
-              <li class="menuTopics"><a href="FAQ.html">FAQ</a></li>
-              <li class="menuTopics"><a href="newsletterdeputados.html">News</a></li>
-              <li class="menuTopics"><a href="consultadeputados.html">Avalie!</a></li>
-              <li class="menuTopics"><a href="questionario_politico.html">Questionário</a></li>
-              <li class="menuTopics"><a href="telalogada.html">Contatos</a></li>
-              <li class="menuTopics"><a href="index.html">Sair</a></li>
-                <div>Seja Bem-vindo, <span id="span_nome_usuario"></span>!</div>
-                </li>
-            </ul>
-        </div>
+      <div class="imgBox">
+        <a href="./index.html">
+          <img src="./logo_img.png" alt="">
+        </a>
+      </div>
+      <div class="menuBox">
+        <ul class="menuList">
+          <li class="menuTopics"><a href="telalogada.html">Início</a></li>
+          <li class="menuTopics"><a href="telalogada.html">Valores</a></li>
+          <li class="menuTopics"><a href="telalogada.html">Métricas</a></li>
+          <li class="menuTopics"><a href="FAQ.html">FAQ</a></li>
+          <li class="menuTopics"><a href="newsletterdeputados.html">News</a></li>
+          <li class="menuTopics"><a href="consultadeputados.html">Avalie!</a></li>
+          <li class="menuTopics"><a href="questionario_politico.html">Questionário</a></li>
+          <li class="menuTopics"><a href="telalogada.html">Contatos</a></li>
+          <li class="menuTopics"><a href="index.html">Sair</a></li>
+          <div>Seja Bem-vindo, <span id="span_nome_usuario"></span>!</div>
+          </li>
+        </ul>
+      </div>
     </nav>
-</header><br>
+  </header><br>
   <h1>Questionário Político | Politicando® 📋</h1><br>
   <h2>Responda atentamente o questionário e obtenha sua orientação política baseada em métricas!</h2>
   <br>
@@ -58,7 +61,7 @@
         <label><input type="radio" name="q1" value="5"> Totalmente contra</label>
       </div>
     </div>
-    
+
     <div class="question">
       <p><b>2. Qual sua opinião sobre a privatização de empresas estatais?</b></p>
       <div class="options">
@@ -140,9 +143,11 @@
       <p><b>9. Como você se posiciona em relação à proteção ambiental?</b></p>
       <div class="options">
         <label><input type="radio" name="q9" value="1"> Deve ser prioridade máxima</label>
-        <label><input type="radio" name="q9" value="2"> Deve ser importante, mas balanceado com outros interesses</label>
+        <label><input type="radio" name="q9" value="2"> Deve ser importante, mas balanceado com outros
+          interesses</label>
         <label><input type="radio" name="q9" value="3"> Neutro</label>
-        <label><input type="radio" name="q9" value="4"> Deve ser considerado, mas sem prejudicar o desenvolvimento econômico</label>
+        <label><input type="radio" name="q9" value="4"> Deve ser considerado, mas sem prejudicar o desenvolvimento
+          econômico</label>
         <label><input type="radio" name="q9" value="5"> Não é uma prioridade</label>
       </div>
     </div>
@@ -150,7 +155,8 @@
     <div class="question">
       <p><b>10. Qual é a sua opinião sobre programas de assistência social?</b></p>
       <div class="options">
-        <label><input type="radio" name="q10" value="1"> Deve ser ampliado para garantir uma rede de proteção social abrangente</label>
+        <label><input type="radio" name="q10" value="1"> Deve ser ampliado para garantir uma rede de proteção social
+          abrangente</label>
         <label><input type="radio" name="q10" value="2"> Deve ser mantido nos casos de extrema necessidade</label>
         <label><input type="radio" name="q10" value="3"> Neutro</label>
         <label><input type="radio" name="q10" value="4"> Deve ser reduzido e focado em casos específicos</label>
@@ -159,17 +165,21 @@
     </div>
 
     <button onclick="calculateResult()">Enviar</button><br><br>
-    <canvas id="chart"></canvas>
+    <div id="div-chart">
+      <canvas id="radarChart" class="chart-plot"></canvas>
+      <canvas id="chart" class="chart-plot"></canvas>
+    </div>
+
   </div>
 
   <div id="result" class="result" style="display: none;"></div>
 
   <script src="questionario_login.js"></script>
 </body>
-</html>
 
+</html>
 <script>
-    var spanNomeUsuario = document.getElementById("span_nome_usuario")
-    spanNomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO");
-    console.log(spanNomeUsuario);
+  var spanNomeUsuario = document.getElementById("span_nome_usuario")
+  spanNomeUsuario.innerHTML = sessionStorage.getItem("NOME_USUARIO");
+  console.log(spanNomeUsuario);
 </script>

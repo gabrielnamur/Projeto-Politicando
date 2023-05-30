@@ -72,6 +72,31 @@ function entrar() {
 function calculateResult() {
   var answers = document.querySelectorAll('input[type="radio"]:checked');
 
+  
+  var questao01 = document.getElementsByName("q1")
+  var questao04 = document.getElementsByName("q4")
+  var questao05 = document.getElementsByName("q5")
+  var questao09 = document.getElementsByName("q9")
+  // var valorQuestao01;
+  // var valorQuestao04;
+  // var valorQuestao05;
+  // var valorQuestao09;
+  var listaValoresPolos = []
+  for (var i = 0; i < questao01.length; i++) {
+    if (questao01[i].type === 'radio' && questao01[i].checked) {
+      listaValoresPolos.push(questao01[i].value);
+    }
+    if (questao04[i].type === 'radio' && questao04[i].checked) {
+      listaValoresPolos.push(questao04[i].value);
+    }
+    if (questao05[i].type === 'radio' && questao05[i].checked) {
+      listaValoresPolos.push(questao05[i].value);
+    }
+    if (questao09[i].type === 'radio' && questao09[i].checked) {
+      listaValoresPolos.push(questao09[i].value);
+    }
+  }
+
   if (answers.length !== 10) {
     alert("Por favor, responda todas as perguntas!");
     return;
@@ -84,8 +109,46 @@ function calculateResult() {
 
   var resultElement = document.getElementById('result');
   resultElement.innerHTML = "Sua orientação política é: " + determineOrientation(result) + " " +
-    "<br>Disclaimer: O questionário é baseado em métricas e seu resultado poderá não refletir na sua efetiva orientação política.";
+    "<br>Como calculamos? Cada pergunta possui diversas alternativas, e cada alternativa tem um valor atribuído de 1 a 5 pontos. Ao responder todas as perguntas, o sistema soma os pontos correspondentes às suas escolhas." + 
+    "<br>Com base nos pontos obtidos, o Politicando® classifica sua orientação política em cinco categorias principais: esquerda, centro-esquerda, centro, centro-direita e direita. Essas categorias são determinadas com base em faixas de pontuação. Vamos entender melhor:" +
+    "<br>Se a soma dos pontos for menor que 15, sua orientação política é considerada de esquerda." +
+    "<br>Se a soma dos pontos estiver entre 15 e 24, sua orientação política é classificada como centro-esquerda." +
+    "<br>Se a soma dos pontos estiver entre 25 e 34, sua orientação política é classificada como centro." + 
+    "<br>Se a soma dos pontos estiver entre 35 e 44, sua orientação política é classificada como centro-direita." +
+    "<br>Se a soma dos pontos for igual ou superior a 45, sua orientação política é considerada de direita." +
+    "<br>Essa metodologia de pontuação e categorização permite que o site Politicando forneça uma estimativa geral da sua orientação política com base nas suas respostas ao questionário. No entanto, é importante lembrar que a política é um assunto complexo e abrangente, e o questionário do Politicando oferece apenas uma abordagem simplificada para esse fim.";
   resultElement.style.display = 'block';
+
+  // Dados e opções do gráfico (mantidos iguais)
+  var data = {
+    labels: ['Economia', 'Educação', 'Saúde', 'Meio Ambiente'],
+    datasets: [{
+      label: 'Minha Orientação Política',
+      data: listaValoresPolos, // Substitua com seus dados reais
+      backgroundColor: 'rgba(54, 162, 235, 0.5)',
+      borderColor: 'rgba(54, 162, 235, 1)',
+      borderWidth: 1
+    }]
+  };
+
+  var options = {
+    scale: {
+      ticks: {
+        beginAtZero: true,
+        min: 0,
+        max: 5, // Substitua com o valor máximo da escala
+        stepSize: 1
+      }
+    }
+  };
+
+  // Criação do gráfico de radar
+  var ctx = document.getElementById('radarChart').getContext('2d');
+  var radarChart = new Chart(ctx, {
+    type: 'radar',
+    data: data,
+    options: options
+  });
   receberResultadoQuestionario()
 }
 
@@ -101,7 +164,7 @@ function determineOrientation(score) {
   } else if (score < 45) {
     posicionamento = "Centro-Direita";
   }
-  else if (score < 55) {
+  else if (score <= 50) {
     posicionamento = "Direita";
   } else {
     posicionamento = "Extrema Direita";
@@ -144,6 +207,12 @@ function funcaofetch(posicionamento) {
   // return false;
 }
 
+// function calcularGraficoRadar(){
+
+
+
+
+// }
 
 function receberResultadoQuestionario() {
   var ctx = document.getElementById('chart').getContext('2d');
