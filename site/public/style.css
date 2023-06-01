@@ -1,8 +1,8 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap'); */
 
 body{
     color: #252525;
-    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Open Sans', sans-serif;
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -214,9 +214,11 @@ p{
 
 .listadeputados .dep_container{
     display: flex;
+    flex-direction: column;
 }
 
 .listadeputados .dep_container table{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -226,6 +228,15 @@ p{
     display: flex;
     align-items: center;
     flex-direction: column;
+}
 
+.listadeputados .dep_container #graficosLikeDislike{
+    width: 100%;
+    display: flex;
+}
 
+.listadeputados .dep_container #graficosLikeDislike canvas{
+    display: flex;
+    width: 50%;
+    height: 50%;
 }
