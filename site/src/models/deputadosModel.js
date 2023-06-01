@@ -14,7 +14,7 @@ function enviarResultado(emailUsuario, senhaUsuario) {
     return idUsuario;
 }
 
-function receberResultado(){
+function receberResultado() {
     console.log('ACESSEI O MODEL NA FUNCAO RECEBER RESULTADO')
     var instrucao = "SELECT COUNT(resultado) qtdVotos, resultado FROM Questionário group by resultado;";
     return database.executar(instrucao);
@@ -37,9 +37,27 @@ function deputados_negativamente(negativo, idUsuario) {
 
 }
 
+function pegarDeslikes() {
+    console.log("Estou na pegar deslikes model");
+    var instrucao = `
+     select count(idVotação) as qtdDeslikes, deputadongosta as nomeDeputado from votaçãongosta group by nomeDeputado; 
+    `
+    return database.executar(instrucao);
+}
+
+function pegarlikes() {
+    console.log("Estou na pegar likes model");
+    var instrucao = `
+     select count(idVotação) as qtdlikes, deputadogosta as nomeDeputado from votaçãogosta group by nomeDeputado; 
+    `
+    return database.executar(instrucao);
+}
+
 module.exports = {
-    enviarResultado, 
+    enviarResultado,
     receberResultado,
     deputados_positivamente,
-    deputados_negativamente
+    deputados_negativamente,
+    pegarDeslikes,
+    pegarlikes
 };

@@ -50,8 +50,8 @@
     <h3>Pesquise o Deputado da atual legislatura abaixo e avalie-no agora!</h3><br>
     <input id="ipt_nome_deputado" type="text" placeholder="Insira o nome do Deputado Federal">
     <button onclick="ver_deputado()">Veja o Status!</button>
-    <button onclick="atualizarGraficolike()">👍</button>
-    <button onclick="atualizarGraficodislike()">👎</button>
+    <button onclick="votarPositivo()">👍</button>
+    <button onclick="votarNegativo()">👎</button>
     <div class="dep_container">
       <table>
         <tbody id="deputados">
@@ -108,27 +108,17 @@
       });
   }
 
-  var votosPositivos = 0;
-  var votosNegativos = 0;
-
   function votarPositivo() {
-    var votosPositivos = 1
-    atualizarGraficolike();
-  }
 
-  function votarNegativo() {
-    var votosNegativos = 1
-    atualizarGraficodislike();
-  }
-
-  function atualizarGraficolike() {
+    var divDeputados = document.getElementById("deputados");
+    divDeputados.innerHTML = ""
 
     var fkUsuario = sessionStorage.getItem("ID_USUARIO");
 
     if (nomeDeputado == "") {
       alert("Pesquise um deputado")
     } else {
-      fetch("/avaliardeputados/deputados_avaliados_positivamente", {
+      fetch("/deputados/deputados_avaliados_positivamente", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -141,27 +131,16 @@
         console.log("resposta: ", resposta);
         if (resposta.ok) {
           alert('Cadastro realizado com sucesso')
+          setTimeout(() => {
+            atualizarGraficos();
+          }, 1000);
           // Grafico
-          var ctxlike = document.getElementById('chartlike');
-          var chartlike = new Chart(ctxlike, {
-            type: 'pie',
-            data: {
-              labels: ['Likes'],
-              datasets: [{
-                data: [votosPositivo],
-                backgroundColor: ['#36A2EB', '#FF6384'],
-                hoverBackgroundColor: ['#36A2EB', '#FF6384']
-              }]
-            }
-          });
-          chartlike.canvas.parentNode.style.height = '50vh';
-          chartlike.canvas.parentNode.style.width = '50vw';
+
         } else {
-          alert("Houve um erro ao tentar realizar o cadastro!");
+          alert("Houve um erro ao tentar votar no candidato!");
         }
       }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
       });
     }
 
@@ -170,14 +149,17 @@
 
   }
 
-  function atualizarGraficodislike() {
+  function votarNegativo() {
+
+    var divDeputados = document.getElementById("deputados");
+    divDeputados.innerHTML = ""
 
     var fkUsuario = sessionStorage.getItem("ID_USUARIO");
     if (nomeDeputado == "") {
       alert("Pesquise um deputado")
     } else {
       // Arrumar fetch para linkar o grafico
-      fetch("/avaliardeputados/deputados_avaliados_negativamente", {
+      fetch("/deputados/deputados_avaliados_negativamente", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -190,29 +172,179 @@
         console.log("resposta: ", resposta);
         if (resposta.ok) {
           alert('Cadastro realizado com sucesso')
-         var ctxdislike = document.getElementById('chartdislike');
-          var chartdislike = new Chart(ctxdislike, {
-            type: 'pie',
-            data: {
-              labels: ['Dislikes'],
-              datasets: [{
-                data: [votosNegativos],
-                backgroundColor: ['#36A2EB', '#FF6384'],
-                hoverBackgroundColor: ['#36A2EB', '#FF6384']
-              }]
-            }
-          });
-          chartdislike.resize('300', '300')
+          setTimeout(() => {
+            atualizarGraficos();
+          }, 1000);
         } else {
-          alert("Houve um erro ao tentar realizar o cadastro!");
+          alert("Houve um erro ao tentar votar no candidato!");
         }
       }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
       });
     }
 
     return false;
   }
+
+  function atualizarGraficos() {
+    fetch("/deputados/pegarDeslikes", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO atualizarGraficos()!")
+      if (resposta.ok) {
+        resposta.json().then(resposta => {
+          console.log(resposta);
+          console.log(JSON.stringify(resposta));
+          plotarGraficoDeslikes(resposta)
+        });
+      } else {
+        console.log("Houve um erro ao pesquisar os deslikes!");
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+    fetch("/deputados/pegarlikes", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO atualizarGraficos()!")
+      if (resposta.ok) {
+        resposta.json().then(resposta => {
+          console.log(resposta);
+          console.log(JSON.stringify(resposta));
+          plotarGraficolikes(resposta)
+        });
+      } else {
+        console.log("Houve um erro ao pesquisar os deslikes!");
+        resposta.text().then(texto => {
+          console.error(texto);
+        });
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+
+
+    return false;
+  }
+
+
+
+  function plotarGraficoDeslikes(resposta) {
+    // Criando estrutura para plotar gráfico - labels
+    let labels = [];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+      labels: labels,
+      datasets: [{
+        data: [],
+        backgroundColor: ['#36A2EB', '#FF6384'],
+        hoverBackgroundColor: ['#36A2EB', '#FF6384']
+      }]
+    };
+    console.log(resposta)
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    for (i = 0; i < resposta.length; i++) {
+      var dadosAtuais = resposta[i];
+      labels.push(dadosAtuais.nomeDeputado);
+      dados.datasets[0].data.push(dadosAtuais.qtdDeslikes);
+    }
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+      type: 'pie',
+      data: dados,
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(
+      document.getElementById('chartdislike'),
+      config
+    );
+    myChart.resize('300', '300')
+
+  }
+
+  function plotarGraficolikes(resposta) {
+    // Criando estrutura para plotar gráfico - labels
+    let labels = [];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+      labels: labels,
+      datasets: [{
+        data: [],
+        backgroundColor: ['#36A2EB', '#FF6384'],
+        hoverBackgroundColor: ['#36A2EB', '#FF6384']
+      }]
+    };
+    console.log(resposta)
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    for (i = 0; i < resposta.length; i++) {
+      var dadosAtuais = resposta[i];
+      labels.push(dadosAtuais.nomeDeputado);
+      dados.datasets[0].data.push(dadosAtuais.qtdlikes);
+    }
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+      type: 'pie',
+      data: dados,
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let chartlike = new Chart(
+      document.getElementById('chartlike'),
+      config
+    );
+    chartlike.resize('300', '300')
+
+    chartlike.canvas.parentNode.style.height = '50vh';
+    chartlike.canvas.parentNode.style.width = '50vw';
+  }
+
+
+  // var ctxdislike = document.getElementById('chartdislike');
+  //         var chartdislike = new Chart(ctxdislike, {
+  //           type: 'pie',
+  //           data: {
+              // labels: ['Dislikes'],
+              // datasets: [{
+              //   data: [votosNegativos],
+              //   backgroundColor: ['#36A2EB', '#FF6384'],
+              //   hoverBackgroundColor: ['#36A2EB', '#FF6384']
+              // }]
+  //           }
+  //         });
+  //         chartdislike.resize('300', '300')
+
+
+  // var ctxlike = document.getElementById('chartlike');
+  //         var chartlike = new Chart(ctxlike, {
+  //           type: 'pie',
+  //           data: {
+  //             labels: ['Likes'],
+  //             datasets: [{
+  //               data: votosPositivo,
+  //               backgroundColor: ['#36A2EB', '#FF6384'],
+  //               hoverBackgroundColor: ['#36A2EB', '#FF6384']
+  //             }]
+  //           }
+  //         });
+  //         chartlike.canvas.parentNode.style.height = '50vh';
+  //         chartlike.canvas.parentNode.style.width = '50vw';
+
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
