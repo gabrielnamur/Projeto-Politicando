@@ -54,7 +54,7 @@ header{
 }
 
 header nav{
-    width: 90%;
+    width: 96%;
     height: 80%;
     display: flex;
     align-items: center;
@@ -74,7 +74,7 @@ header nav .imgBox:hover{
 }
 
 header .menuTopics:hover{
-    padding: 1em 2em;
+    transform: scale(1.10);
     transition: .2s;
     background: var(--color3);
     border-radius: 500px;
@@ -111,13 +111,14 @@ header nav .menuBox{
     height: 70%;
     display: flex;
     list-style: none;
+    font-weight: 500;
+    opacity: 70%;
 }
 
 .menuList .menuTopics{
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 15%;
+    width: 29%;
 }
 
 .menuList .menuButton{
@@ -129,7 +130,7 @@ header nav .menuBox{
 .botao{
     height: 100%;
     width: 120%;
-    border-radius: 500px;
+    border-radius: 10px;
     cursor: pointer;
     border: 2px solid #939393;
     background: var(--color1);
