@@ -81,6 +81,65 @@
             <div class="firstContainer">
                 <h1>Principais Métricas 📊</h1>
                 <h2>Saiba mais da Composição da Atual Legislatura!</h2><br>
+
+
+                <label for="numPartidos">Número de partidos:</label>
+                <input type="number" id="numPartidos" placeholder="Digite o número de partidos">
+                <button onclick="criarCamposPartidos()">Criar campos</button>
+                <br><br>
+              
+                <div id="camposPartidos"></div>
+              
+                <button onclick="calcularAssentos()">Calcular</button>
+              
+                <p id="resultado"></p>
+
+                <script>
+                    function criarCamposPartidos() {
+                      var numPartidos = parseInt(document.getElementById("numPartidos").value);
+                
+                      var camposPartidos = document.getElementById("camposPartidos");
+                      camposPartidos.innerHTML = "";
+                
+                      for (var i = 1; i <= numPartidos; i++) {
+                        var label = document.createElement("label");
+                        label.for = "partido" + i;
+                        label.innerHTML = "Votos do partido " + i + ": ";
+                        
+                        var input = document.createElement("input");
+                        input.type = "number";
+                        input.id = "partido" + i;
+                
+                        camposPartidos.appendChild(label);
+                        camposPartidos.appendChild(input);
+                        camposPartidos.appendChild(document.createElement("br"));
+                      }
+                    }
+                
+                    function calcularAssentos() {
+                      var numPartidos = parseInt(document.getElementById("numPartidos").value);
+                      var totalVotos = 0;
+                
+                      for (var i = 1; i <= numPartidos; i++) {
+                        var votosPartido = parseInt(document.getElementById("partido" + i).value);
+                        totalVotos += votosPartido;
+                      }
+                
+                      var totalAssentos = 513; // Total de assentos na Câmara dos Deputados
+                
+                      var resultados = "";
+                
+                      for (var i = 1; i <= numPartidos; i++) {
+                        var votosPartido = parseInt(document.getElementById("partido" + i).value);
+                        var assentosPartido = Math.round((votosPartido / totalVotos) * totalAssentos);
+                        resultados += "Partido " + i + ": " + assentosPartido + "<br>";
+                      }
+                
+                      document.getElementById("resultado").innerHTML = "Assentos: <br>" + resultados;
+                    }
+                  </script>
+
+
                 <div class="graficosCamara">
                     <img 
                         src="./fotos-metricas.png">
