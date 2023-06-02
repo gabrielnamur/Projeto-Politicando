@@ -218,12 +218,25 @@ p{
     flex-direction: column;
     justify-content: center;
 }
-#chart{
-    display: flex;
-    position: relative;
-    width: 700px !important;
-    height: 400px !important;
+
+#quiz #div-chart{
+    left: 0; 
+    right: 0; 
+    margin: 0 15% 0 15%;
 }
+
+#quiz #div-chart #radarChart{
+    display: flex;
+    width: 45%;
+    padding: 1em;
+}
+
+#quiz #div-chart #chart{
+    display: flex;
+    padding: 1em;
+    width: 45%;
+}
+
 
 .listadeputados .dep_container{
     display: flex;
@@ -244,12 +257,9 @@ p{
 }
 
 .listadeputados .dep_container #graficosLikeDislike{
-    width: 100%;
     display: flex;
+    left: 0; 
+    right: 0; 
+    margin: 0 20% 0 20%;
 }
 
-.listadeputados .dep_container #graficosLikeDislike canvas{
-    display: flex;
-    width: 50%;
-    height: 50%;
-}

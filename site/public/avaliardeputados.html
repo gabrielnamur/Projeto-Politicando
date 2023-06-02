@@ -265,6 +265,8 @@
     const config = {
       type: 'pie',
       data: dados,
+      responsive:true,
+      maintainAspectRatio: false,
     };
 
     // Adicionando gráfico criado em div na tela
@@ -272,7 +274,6 @@
       document.getElementById('chartdislike'),
       config
     );
-    myChart.resize('300', '300')
 
   }
 
@@ -301,6 +302,8 @@
     const config = {
       type: 'pie',
       data: dados,
+      responsive:true,
+      maintainAspectRatio: false,
     };
 
     // Adicionando gráfico criado em div na tela
@@ -308,7 +311,6 @@
       document.getElementById('chartlike'),
       config
     );
-    chartlike.resize('300', '300')
 
     chartlike.canvas.parentNode.style.height = '50vh';
     chartlike.canvas.parentNode.style.width = '50vw';
