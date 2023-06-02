@@ -109,14 +109,14 @@ function calculateResult() {
 
   var resultElement = document.getElementById('result');
   resultElement.innerHTML = "Sua orientação política é: " + determineOrientation(result) + " " +
-    "<br>Como calculamos? Cada pergunta possui diversas alternativas, e cada alternativa tem um valor atribuído de 1 a 5 pontos. Ao responder todas as perguntas, o sistema soma os pontos correspondentes às suas escolhas." + 
-    "<br>Com base nos pontos obtidos, o Politicando® classifica sua orientação política em cinco categorias principais: esquerda, centro-esquerda, centro, centro-direita e direita. Essas categorias são determinadas com base em faixas de pontuação. Vamos entender melhor:" +
-    "<br>Se a soma dos pontos for menor que 15, sua orientação política é considerada de esquerda." +
-    "<br>Se a soma dos pontos estiver entre 15 e 24, sua orientação política é classificada como centro-esquerda." +
-    "<br>Se a soma dos pontos estiver entre 25 e 34, sua orientação política é classificada como centro." + 
-    "<br>Se a soma dos pontos estiver entre 35 e 44, sua orientação política é classificada como centro-direita." +
-    "<br>Se a soma dos pontos for igual ou superior a 45, sua orientação política é considerada de direita." +
-    "<br>Essa metodologia de pontuação e categorização permite que o site Politicando forneça uma estimativa geral da sua orientação política com base nas suas respostas ao questionário. No entanto, é importante lembrar que a política é um assunto complexo e abrangente, e o questionário do Politicando oferece apenas uma abordagem simplificada para esse fim.";
+    "<br><br>Como calculamos? Cada alternativa tem um valor atribuído de 1 a 5 pontos. Ao responder, o sistema soma os pontos correspondentes às suas escolhas." + 
+    "<br>O Politicando® classifica sua orientação política em cinco categorias principais, que são determinadas com base em faixas de pontuação. Vejamos:" +
+    "<br>Se a soma dos pontos < 15: esquerda." +
+    "<br>Se a soma dos pontos 15 ~ 24: centro-esquerda." +
+    "<br>Se a soma dos pontos 25 ~ 34: centro." + 
+    "<br>Se a soma dos pontos 35 ~ 44: centro-direita." +
+    "<br>Se a soma dos pontos >= 45: direita." +
+    "<br>Disclaimer: Essa metodologia de pontuação permite uma estimativa geral da sua orientação política baseada em métricas. O questionário do Politicando® pode não refletir sua real orientação.";
   resultElement.style.display = 'block';
 
   // Dados e opções do gráfico (mantidos iguais)

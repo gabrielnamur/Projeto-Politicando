@@ -42,7 +42,7 @@
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" id="ipt_sexo" placeholder="Sexo" required autocomplete="off" />
+                        <input type="text" id="ipt_sexo" placeholder="Sexo (M ou F)" required autocomplete="off" />
 
                     </div>
                 </div>
@@ -162,9 +162,7 @@
                 }
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                finalizarAguardar();
             });
-
             return false;
         }
     }
