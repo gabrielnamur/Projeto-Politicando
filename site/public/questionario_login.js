@@ -268,10 +268,7 @@ function receberResultadoQuestionario() {
                   }
                 }
               });
-
-            }, 200
-          )
-
+            }, 200)
         })
         alert('Resultado computado com sucesso.')
       } else {

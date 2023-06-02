@@ -29,7 +29,8 @@
                     <li class="menuTopics"><a href="#guiadebusca">Avalie!</a></li>
                     <li class="menuTopics"><a href="#questionario">Questionário</a></li>
                     <li class="menuTopics"><a href="#contato">Contatos</a></li>
-                    <li class="menuButton"><a href="teladecadastro.html"><button class="botao">Cadastre-se!</button></a></li>
+                    <li class="menuButton"><a href="teladecadastro.html"><button class="botao">Cadastre-se!</button></a>
+                    </li>
                     <li class="menuButton"><a href="telalogin.html"><button class="botao">Faça seu Login!</button></a>
                     </li>
                 </ul>
@@ -89,93 +90,43 @@
                     <button onclick="calcularAssentos()">Calcular</button>
                 </div>
                 <br><br>
-              
+
                 <div id="camposPartidos"></div>
-              
-              
-                <p id="resultado"></p>
-
-                <div>
-                <script>
-                    function criarCamposPartidos() {
-                      var numPartidos = parseInt(document.getElementById("numPartidos").value);
                 
-                      var camposPartidos = document.getElementById("camposPartidos");
-                      camposPartidos.innerHTML = "";
-                
-                      for (var i = 1; i <= numPartidos; i++) {
-                        var label = document.createElement("label");
-                        label.for = "partido" + i;
-                        label.innerHTML = "Votos do partido " + i + ": ";
-                        
-                        var input = document.createElement("input");
-                        input.type = "number";
-                        input.id = "partido" + i;
-                
-                        camposPartidos.appendChild(label);
-                        camposPartidos.appendChild(input);
-                        camposPartidos.appendChild(document.createElement("br"));
-                      }
-                    }
-                
-                    function calcularAssentos() {
-                      var numPartidos = parseInt(document.getElementById("numPartidos").value);
-                      var totalVotos = 0;
-                
-                      for (var i = 1; i <= numPartidos; i++) {
-                        var votosPartido = parseInt(document.getElementById("partido" + i).value);
-                        totalVotos += votosPartido;
-                      }
-                
-                      var totalAssentos = 513; // Total de assentos na Câmara dos Deputados
-                
-                      var resultados = "";
-                
-                      for (var i = 1; i <= numPartidos; i++) {
-                        var votosPartido = parseInt(document.getElementById("partido" + i).value);
-                        var assentosPartido = Math.round((votosPartido / totalVotos) * totalAssentos);
-                        resultados += "Partido " + i + ": " + assentosPartido + "<br>";
-                      }
-                
-                      document.getElementById("resultado").innerHTML = "Assentos: <br>" + resultados;
-                    }
-                  </script>
-                  </div>
-
                 <div class="graficosCamara">
                     <div class="divisao_metricas">
-                        <img
-                            src="./fotos-metricas.png">
- <div class="bloco1">
-    <img
-    src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/idade-desktop.jpg">
-    <img
-    src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/raca-desktop.jpg">
-</div>
+                        <div id="div_resultado"></div>
+                        <img src="./fotos-metricas.png">
+                        <div class="bloco1">
+                            <img
+                                src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/idade-desktop.jpg">
+                            <img
+                                src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/raca-desktop.jpg">
+                        </div>
 
-<div class="bloco2">
-    <img
-    src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/escolaridade-desktop.jpg">
-    <img
-    src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/genero-renovacao-desktop.jpg">
-</div>
+                        <div class="bloco2">
+                            <img
+                                src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/escolaridade-desktop.jpg">
+                            <img
+                                src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/genero-renovacao-desktop.jpg">
+                        </div>
 
 
-<div class="bloco3">
-    <img
-    src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/mandatos-desktop.jpg">
-    <img
-    src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/patrimonio-desktop.jpg">
-    
-</div>
+                        <div class="bloco3">
+                            <img
+                                src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/mandatos-desktop.jpg">
+                            <img
+                                src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/patrimonio-desktop.jpg">
 
-<div class="bloco4">
-    <img
-    src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/profissao-desktop.jpg">
-    <img
-        src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/bancada-desktop.jpg">
-</div>         
-                </div>               
+                        </div>
+
+                        <div class="bloco4">
+                            <img
+                                src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/profissao-desktop.jpg">
+                            <img
+                                src="https://www.camara.leg.br/internet/agencia/infograficos-html5/composicao-da-camara-2023/images/bancada-desktop.jpg">
+                        </div>
+                    </div>
         </main>
         <img src="imgs/waveDark.svg" alt="">
     </div>
@@ -272,7 +223,8 @@
                             <div class="rodape_contatos">
                                 <div class="endereco">
                                     <h1>Endereço</h1>
-                                    <span class="fa-solid fa-location-dot"></span><span class="rua">Rua Haddock Lobo, nº.595</span>
+                                    <span class="fa-solid fa-location-dot"></span><span class="rua">Rua Haddock Lobo,
+                                        nº.595</span>
                                 </div>
                                 <div class="topics-contatos">
                                     <h1>Contatos</h1>
@@ -280,10 +232,10 @@
                                         <span class="fa-solid fa-phone fa-lg"></span><br>
                                         <span class="fa-solid fa-comment fa-lg"></span>
                                     </div>
-                                    <div class="socialMedia">   
-                                            <span>(11) 3031-2022</span>
-                                
-                                       <span>atendimento@politicando.br</span>
+                                    <div class="socialMedia">
+                                        <span>(11) 3031-2022</span>
+
+                                        <span>atendimento@politicando.br</span>
                                     </div>
                                 </div>
                             </div>
@@ -293,3 +245,47 @@
 </body>
 
 </html>
+<script>
+    function criarCamposPartidos() {
+        var numPartidos = parseInt(document.getElementById("numPartidos").value);
+
+        var camposPartidos = document.getElementById("camposPartidos");
+        camposPartidos.innerHTML = "";
+
+        for (var i = 1; i <= numPartidos; i++) {
+            var label = document.createElement("label");
+            label.for = "partido" + i;
+            label.innerHTML = "Votos do partido " + i + ": ";
+
+            var input = document.createElement("input");
+            input.type = "number";
+            input.id = "partido" + i;
+
+            camposPartidos.appendChild(label);
+            camposPartidos.appendChild(input);
+            camposPartidos.appendChild(document.createElement("br"));
+        }
+    }
+
+    function calcularAssentos() {
+        var numPartidos = parseInt(document.getElementById("numPartidos").value);
+        var totalVotos = 0;
+
+        for (var i = 1; i <= numPartidos; i++) {
+            var votosPartido = parseInt(document.getElementById("partido" + i).value);
+            totalVotos += votosPartido;
+        }
+
+        var totalAssentos = 513; // Total de assentos na Câmara dos Deputados
+
+        var resultados = "";
+
+        for (var i = 1; i <= numPartidos; i++) {
+            var votosPartido = parseInt(document.getElementById("partido" + i).value);
+            var assentosPartido = Math.round((votosPartido / totalVotos) * totalAssentos);
+            resultados += "Partido " + i + ": " + assentosPartido + "<br>";
+        }
+
+        div_resultado.innerHTML = "Assentos: <br>" + resultados;
+    }
+</script>
