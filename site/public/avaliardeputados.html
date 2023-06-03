@@ -39,7 +39,7 @@
           <li class="menuTopics"><a href="questionario_politico.html">Questionário</a></li>
           <li class="menuTopics"><a href="telalogada.html">Contatos</a></li>
           <li class="menuTopics"><a href="index.html">Sair</a></li>
-          <div>Seja Bem-vindo, <span id="span_nome_usuario"></span>!</div>
+          <div>Bem-vindo(a), <span id="span_nome_usuario"></span>!</div>
           </li>
         </ul>
       </div>
@@ -47,11 +47,15 @@
   </header>
   <div class="listadeputados">
     <h1>Avaliar Deputados | Politicando® 🔎</h1>
-    <h3>Pesquise o Deputado da atual legislatura abaixo e avalie-no agora!</h3><br>
+    <h3>
+        Como funciona? Escolha, vote e obtenha os gráficos com base na opinião dos usuários.
+        O 1º Gráfico, que será gerado, refere-se aos deputados mais bem avaliados,
+        enquanto o 2º Gráfico, aos deputados mais mal avaliados!
+    </h3><br>
     <input id="ipt_nome_deputado" type="text" placeholder="Insira o nome do Deputado Federal">
     <button onclick="ver_deputado()">Veja o Status!</button>
     <button onclick="votarPositivo()">👍</button>
-    <button onclick="votarNegativo()">👎</button>
+    <button onclick="votarNegativo()">👎</button><br>
     <div class="dep_container">
       <table>
         <tbody id="deputados">
@@ -314,6 +318,8 @@
 
     chartlike.canvas.parentNode.style.height = '50vh';
     chartlike.canvas.parentNode.style.width = '50vw';
+
+    listadeputados.innerHTML = `Teste.`
   }
 
 

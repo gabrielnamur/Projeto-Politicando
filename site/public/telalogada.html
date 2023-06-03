@@ -32,7 +32,7 @@
                     <li class="menuTopics"><a href="#questionario">Questionário</a></li>
                     <li class="menuTopics"><a href="#contato">Contatos</a></li>
                     <li class="menuTopics"><a href="index.html">Sair</a></li>
-                    <div id="divnometela">Seja Bem-vindo(a), <span id="span_nome_usuario"></span>!</div>
+                    <div id="divnometela">Bem-vindo(a), <span id="span_nome_usuario"></span>!</div>
                     </li>
                 </ul>
             </div>
@@ -88,6 +88,7 @@
                     <button onclick="calcularAssentos()">Calcular</button>
                     <div id="camposPartidos"></div>
                     <p id="resultado"></p>
+                    
                 </div>
 
 
@@ -169,11 +170,11 @@
                 <h1 id="guiadebusca">Avaliar Deputados 🔎</h1>
                 <p>
                 <h2>Avalie o desempenho dos Deputados Federais
-                    e compartilhe sua opinião sobre seu desempenho. Nosso sistema exclusivo
+                    e compartilhe sua opinião. Nosso sistema exclusivo
                     permite que você classifique o trabalho dos deputados como positivo ou
                     negativo.</h2>
                 <p>Visualize os resultados em um gráfico interativo.
-                    Sua opinião importa! Faça a diferença hoje mesmo!</p>
+                    Sua opinião importa! Faça a diferença, hoje mesmo!</p>
                 <div class="buttonBox">
                     <button style="background-color: #f5f5f5;"><a href="avaliardeputados.html">Clique
                             agora!</a></button>
@@ -218,21 +219,12 @@
                                 </p>
                             </div>
                             <div class="rodape_contatos">
-                                <div class="endereco">
-                                    <h1>Endereço</h1>
-                                    <span class="fa-solid fa-location-dot"></span><span class="rua">Rua Haddock Lobo,
-                                        nº.595</span>
-                                </div>
                                 <div class="topics-contatos">
                                     <h1>Contatos</h1>
-                                    <div class="contatos">
-                                        <span class="fa-solid fa-phone fa-lg"></span><br>
-                                        <span class="fa-solid fa-comment fa-lg"></span>
-                                    </div>
                                     <div class="socialMedia">
                                         <span>(11) 3031-2022</span>
-
                                         <span>atendimento@politicando.br</span>
+                                        <span>Rua Haddock Lobo, nº. 595</span>
                                     </div>
                                 </div>
                             </div>
@@ -287,6 +279,6 @@
             resultados += "Partido " + i + ": " + assentosPartido + "<br>";
         }
 
-        document.getElementById("resultado").innerHTML = "Assentos: <br>" + resultados;
+        document.getElementById("resultado").innerHTML = "<b> Assentos: <br>" + resultados + "</b>";
     }
 </script>
