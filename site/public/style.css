@@ -11,7 +11,7 @@ body{
 }
 
 .reverse main{
-    flex-direction: row-reverse; /* inverte a ordem*/
+    flex-direction: row-reverse;
 }
 
 .darkSection main h1{
@@ -22,14 +22,12 @@ body{
     color: var(--color1);
 }
 
-
-
 .sections{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 60vh; /* isso faz com que as seções aumentem caso o texto exceda a altura e não fique transbordando pra fora da página*/
+    min-height: 60vh;
 }
 
 .sections main{
@@ -37,8 +35,6 @@ body{
     width: 90%;
     height: 80%;
 }
-
-
 
 .sections main .firstContainer,.secondContainer{
     font-size: 14px;
@@ -52,10 +48,6 @@ body{
 .sections main .secondContainer img{
     width: 80%;
     border-radius: 20px;
-}
-
-#hopTechLogo{
-    border-radius: 0;
 }
 
 .section main .firstContainer h1, p{
@@ -75,7 +67,6 @@ body{
     position: relative;
 top: 150%;
 }
-
 
 .sections main .firstContainer .titleBox{
     padding: .5em 0;

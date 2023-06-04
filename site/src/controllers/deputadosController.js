@@ -6,8 +6,6 @@ function deputados_positivamente(req, res) {
     var positivo = req.body.votosPositivosServer;
     var idUsuario = req.body.idUsuarioServer;
 
-    // Faça as validações dos valores
-    // Passe os valores como parâmetro e vá para o arquivo questionarioModel.js
     deputadosModel.deputados_positivamente(positivo, idUsuario)
         .then(
             function (resposta) {
@@ -26,18 +24,17 @@ function deputados_positivamente(req, res) {
 }
 
 function deputados_negativamente(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    
     console.log("Estou na controller.");
     var negativo = req.body.votosNegativosServer;
     var idUsuario = req.body.idUsuarioServer;
 
-    // Faça as validações dos valores
     if (negativo == undefined) {
         console.log("Valor do negativo ta undefined")
     } else if (idUsuario == undefined) {
         console.log("Idusuario está undefined")
     } else {
-        // Passe os valores como parâmetro e vá para o arquivo questionarioModel.js
+        
         deputadosModel.deputados_negativamente(negativo, idUsuario)
             .then(
                 function (deputadongosta) {
@@ -61,7 +58,7 @@ function pegarDeslikes(req, res) {
         .then(
             function (resultado) {
                 console.log(`\nResultados encontrados: ${resultado.length}`);
-                console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+                console.log(`Resultados: ${JSON.stringify(resultado)}`); 
                 if (resultado.length >= 1) {
                     console.log(resultado);
                     res.json(resultado);
@@ -83,7 +80,7 @@ function pegarlikes(req, res) {
         .then(
             function (resultado) {
                 console.log(`\nResultados encontrados: ${resultado.length}`);
-                console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+                console.log(`Resultados: ${JSON.stringify(resultado)}`); 
                 if (resultado.length >= 1) {
                     console.log(resultado);
                     res.json(resultado);

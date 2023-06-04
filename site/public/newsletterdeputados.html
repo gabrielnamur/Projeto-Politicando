@@ -54,12 +54,10 @@
     <div id="newsResults"></div>
 
     <script>
-        // Evento de envio do formulário
         $('#newsForm').submit(function(event) {
             event.preventDefault();
             var publicFigure = $('#publicFigure').val();
 
-            // Chamada AJAX para a API GNews
             $.ajax({
                 url: 'https://gnews.io/api/v4/search',
                 type: 'GET',
@@ -70,7 +68,6 @@
                     country: 'br'
                 },
                 success: function(response) {
-                    // Processar e exibir as notícias
                     var news = response.articles;
                     var newsResults = $('#newsResults');
                     newsResults.empty();

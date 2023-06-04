@@ -1,8 +1,8 @@
-/*GERAL*/
+
 body{
     background: #eee!important;
 }
-/*FORM*/
+
 form {
     max-width: 600px;
     margin: 40px auto;
@@ -11,7 +11,7 @@ form {
     background: #e4e4e4;
     box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
-/*INPUT E TEXTAREA*/
+
 .input-group-addon{
     background:#5d5d5d!important; 
     border: 1px solid #5d5d5d!important;
@@ -35,7 +35,7 @@ input{
     outline: 0;
     border-color: #5d5d5d;
 }
-/*LINKS*/
+
 form p{
     margin: 10px 0;
     text-align: right;
@@ -55,7 +55,7 @@ a:focus{
     color: #464646!important;
     text-decoration: none!important;
 }
-/*BOTOES*/
+
 .botao {
     padding: 15px 0;
     letter-spacing: .1em;

@@ -33,9 +33,6 @@ function entrar() {
           console.log(json);
           console.log(JSON.stringify(json));
 
-          //var varnometela = document.getElementById("divnometela");
-          //varnometela.innerHTML = `<span>${json.nome}</span>`;
-
           sessionStorage.EMAIL_USUARIO = json.email;
           sessionStorage.NOME_USUARIO = json.nome;
           sessionStorage.ID_USUARIO = json.idUsuario;
@@ -46,7 +43,7 @@ function entrar() {
 
           setTimeout(function () {
             window.location = "telalogada.html";
-          }, 1000); // apenas para exibir o loading
+          }, 1000); 
 
         });
 
@@ -77,10 +74,7 @@ function calculateResult() {
   var questao04 = document.getElementsByName("q4")
   var questao05 = document.getElementsByName("q5")
   var questao09 = document.getElementsByName("q9")
-  // var valorQuestao01;
-  // var valorQuestao04;
-  // var valorQuestao05;
-  // var valorQuestao09;
+ 
   var listaValoresPolos = []
   for (var i = 0; i < questao01.length; i++) {
     if (questao01[i].type === 'radio' && questao01[i].checked) {
@@ -119,12 +113,11 @@ function calculateResult() {
     "<br>Disclaimer: Essa metodologia de pontuação permite uma estimativa geral da sua orientação política baseada em métricas. O questionário do Politicando® pode não refletir sua real orientação.";
   resultElement.style.display = 'block';
 
-  // Dados e opções do gráfico (mantidos iguais)
   var data = {
     labels: ['Economia', 'Educação', 'Saúde', 'Meio Ambiente'],
     datasets: [{
       label: 'Minha Orientação Política',
-      data: listaValoresPolos, // Substitua com seus dados reais
+      data: listaValoresPolos,
       backgroundColor: 'rgba(54, 162, 235, 0.5)',
       borderColor: 'rgba(54, 162, 235, 1)',
       borderWidth: 1
@@ -136,13 +129,12 @@ function calculateResult() {
       ticks: {
         beginAtZero: true,
         min: 0,
-        max: 5, // Substitua com o valor máximo da escala
+        max: 5, 
         stepSize: 1
       }
     }
   };
 
-  // Criação do gráfico de radar
   var ctx = document.getElementById('radarChart').getContext('2d');
   var radarChart = new Chart(ctx, {
     type: 'radar',
@@ -187,8 +179,6 @@ function funcaofetch(posicionamento) {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      // crie um atributo que recebe o valor recuperado aqui
-      // Agora vá para o arquivo routes/usuario.js
       resultado: posicionamento,
       idUsuario: Number(sessionStorage.getItem("ID_USUARIO")),
     })
@@ -201,18 +191,9 @@ function funcaofetch(posicionamento) {
     }
   }).catch(function (resposta) {
     console.log(`#ERRO: ${resposta}`);
-    // finalizarAguardar();
   });
 
-  // return false;
 }
-
-// function calcularGraficoRadar(){
-
-
-
-
-// }
 
 function receberResultadoQuestionario() {
   var ctx = document.getElementById('chart').getContext('2d');
@@ -278,6 +259,5 @@ function receberResultadoQuestionario() {
       }
     }).catch(function (resposta) {
       console.log(`#ERRO: ${resposta}`);
-      // finalizarAguardar();
     });
 }

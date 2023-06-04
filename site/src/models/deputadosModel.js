@@ -8,7 +8,7 @@ function enviarResultado(emailUsuario, senhaUsuario) {
     console.log("Executando a instrução SQL: \n" + instrucao);
 
     var resultado = database.executar(instrucao);
-    var idUsuario = resultado[0]; //.idUsuario
+    var idUsuario = resultado[0];
     console.log(idUsuario);
 
     return idUsuario;

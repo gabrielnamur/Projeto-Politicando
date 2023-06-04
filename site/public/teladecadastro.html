@@ -9,13 +9,11 @@
 </head>
 
 <body>
-    <!-- FORM LOGIN -->
     <form class="container" action="#" method="#">
         <div class="col-md-12">
             <center>
                 <h1 style="color: #000; padding-bottom: 10px;">Cadastro</h1>
             </center>
-            <!-- Input Nome e Sobrenome-->
             <div class="form-group">
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
@@ -26,7 +24,6 @@
                 </div>
             </div>
             <br><br>
-            <!-- Input Telefone-->
             <div class="form-group">
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
@@ -36,8 +33,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Input Sexo-->
             <div class="form-group">
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
@@ -57,7 +52,6 @@
                 </div>
             </div>
             <br><br>
-            <!-- Input Senha-->
             <div class="form-group">
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
@@ -69,7 +63,6 @@
             </div>
 
             <br><br>
-            <!-- Input Senha-->
             <div class="form-group">
                 <div class="col-md-12 inputGroupContainer">
                     <div class="input-group">
@@ -84,7 +77,6 @@
 
 
                 <p>Para confirmar seu cadastro clique em cadastre-se. </p>
-                <!-- Input Botão de enviar-->
                 <input class="botao" type="submit" value="CADASTRE-SE" onclick="validarFormulario()"><br><br>
                 Já tem sua conta? Faça seu login agora!
 
@@ -98,7 +90,7 @@
 </html>
 <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bootstrap-4/bootstrap-4.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-<!-- Início da função p/ validar o formulário -->
+
 <script>
     function validarFormulario() {
         var dadosCliente = {
@@ -109,7 +101,7 @@
             confirmacao: ipt_confirmarsenha.value
         }
         var emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(dadosCliente.email);
-        // Validar nome do usuário
+        
         if (dadosCliente.nome === "" || dadosCliente.email === "" || dadosCliente.senha === "" || dadosCliente.confirmacao === "") {
             Swal.fire({
                 position: 'center',
@@ -149,8 +141,7 @@
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    // crie um atributo que recebe o valor recuperado aqui
-                    // Agora vá para o arquivo routes/usuario.js
+                    
                     clienteServer: dadosCliente
                 })
             }).then(function (resposta) {

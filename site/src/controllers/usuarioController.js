@@ -36,7 +36,7 @@ function entrar(req, res) {
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); 
 
                     if (resultado.length == 1) {
                         console.log(resultado);
@@ -59,10 +59,8 @@ function entrar(req, res) {
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var dadosCliente = req.body.clienteServer;
 
-    // Faça as validações dos valores
     if (dadosCliente.nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
     } else if (dadosCliente.sexo == undefined) {
@@ -72,7 +70,6 @@ function cadastrar(req, res) {
     } else if(dadosCliente.senha == undefined){
         res.status(400).send("Sua senha está undefined")
     }else{
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(dadosCliente)
             .then(
                 function (resultado) {
